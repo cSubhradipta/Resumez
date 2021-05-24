@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&display=swap');
+
+*{
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.logo{
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+    text-align: center;
+    font-size: 72px;
+    font-weight: bold;
+    color: #283747;
+    text-shadow: -1px 1px 0 #3c1874,
+                        1px 1px 0 #3c1874,
+                        1px -1px 0 #3c1874,
+                        -1px -1px 0 #3c1874;
+}
+
+.caption{
+    font-family: sans-serif;
+    margin: 60px 0 0 30px;
+    font-weight: 600;
+    font-stretch: expanded;
+}
+
+.caption h1{
+    font-size: 64px;
+}
+
+.button {
+    border-radius: 25px;
+    border: 1px solid #6e60f0;
+    background-color: #ffffff;
+    color: #6e60f0;
+    text-align: center;
+    font-size: 20px;
+
+    font-weight: 400;
+    padding: 8px;
+    width: 250px;
+    transition: all 0.3s;
+    cursor: pointer;
+    margin-top: 48px;
+    outline: none;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+  }
+  
+  .button span:after {
+    content: '\279d';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.3s;
+  }
+  
+  .button:hover{
+    
+    background-color: #6e60f0;
+    color: #ffffff;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+    
+
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+.resume{
+    margin: 30px 90px 0 0;
+    padding: 10px;
+}
+
+.resume img{
+    width: 110%;
+    display: block;
+    margin: auto;
+}
+
+.form-font{
+  font-family: "Manrope";
+}
+
+.font-weight-bold{
+  font-weight: 600;
+}
+
+.res-template{
+	width: 800px;
+	min-height: 1122px;
+	display: flex;
+	margin: auto;
+	font-family: "Montserrat";
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.res-template .res-left div{
+	background: #EBEDF7;
+}
+
+
+
+
+.res-template .res-left {
+	width: 280px;
+	background: #EBEDF7;
+}
+
+.res-left p{
+  background: #EBEDF7;
+}
+
+.name{
+	font-weight:700;
+	font-size: 32px;
+	line-height: normal;
+}
+
+.mainrole{
+	font-weight:500;
+	font-size: 12px;
+	line-height: 0.5;
+  text-transform: uppercase;
+}
+
+.personal-details{
+	border: 2px solid #3F51B5;
+	font-size: 11px;
+	line-height: 0;
+	font-stretch: expanded;
+}
+
+.personal-details div a{
+	text-decoration: none;
+  color: #000;
+}
+
+.personal-details .sub-heading{
+	font-weight: 600;
+}
+
+.topic{
+  margin-top: 24px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  color: #3F51B5;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.res-left .topic{
+  background: #EBEDF7;
+}
+
+.underline{
+  margin-top: 0;
+  padding-top: 0;
+  border-top: 2px solid #3F51B5;
+}
+.languages{
+  display: block;
+}
+
+.lang{
+  float: left;
+  width: 50%;
+  min-height: 72px;
+}
+
+.language{
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.level{
+  margin-top: 0;
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.hob{
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  padding: 12px;
+}
+
+.res-template .res-right {
+  margin-top: 0;
+	width: 520px;
+}
+
+.content{
+  line-height: 1.5;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.institute div{
+  display: inline-block;
+}
+.left-part{
+  padding-top: 8px;
+  line-height: 0;
+}
+
+.org{
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 0;
+  color: #000;
+  display: block;
+}
+
+.course-name{
+  font-size: 11px;
+  max-width: 360px;
+  line-height: 1.2;
+  
+}
+
+.course-name span{
+  font-weight: 600;
+  
+}
+
+.right-part{
+  float: right;
+  padding-top: 7px;
+  line-height: 0.5;
+}
+
+.period{
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.score{
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.description{
+  line-height: 1.3;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.role{
+  font-size: 11px;
+  line-height: 0;
+  font-weight:500;
+  color: #000;
+  display: block;
+  text-transform: capitalize;
+}
+
+.technology-used{
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.heading{
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 800;
+  font-stretch: expanded;
+  font-family: "Montserrat";
+  color: #3c1874;
+}
+
+.formBlock{
+  padding: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  
+}
+
+#form-layout{
+  display: block;
+}
+
+#resume-layout{
+  display: none;
+}
+
+label{
+  font-weight: 800;
+  color: #932432;
+  background: none;
+}
+
+.footer-copyright{
+  font-family: "Montserrat";
+  text-decoration: none;
+}
+
+.footer-copyright a{
+  text-decoration: none;
+}
+
+.col6{
+  width: 50%;
+}
+
+@media print{
+  #logo, #form-layout, #buttons, #footer {
+      display: none;
+  }
+
+ #myresume{
+   top: 0;
+   transform: scale(1.425);
+   transform-origin: top;
+ }
+}
+
+.box{
+  display: flex;
+}
+.col6{
+  flex: 50%;
+  padding-left: 4px;
+  padding-right: 4px;
+}
