@@ -186,9 +186,8 @@ i{
 
 .left_navbar{
     position: fixed;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    display: block;
+    margin: auto;
     text-align: center;
     width: 3rem;
     top: 0;
@@ -300,6 +299,7 @@ i{
     right: 0;
     left: 28rem;
     overflow-y: scroll;
+    display: block;
 }
 
 .view_button{
