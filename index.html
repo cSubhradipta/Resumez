@@ -1,1071 +1,1265 @@
 <!doctype html>
 <html lang="en">
     <head>
+        
         <title id="myTitle">Resumez</title>
-        <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js"></script>
-        <link rel="shortcut icon" type="image/jpg" href="images/favicon.ico">
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
+        <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@900&family=Lexend&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src = "scripts.js"></script>
+        <link rel="stylesheet" href="style.css">
+
     </head>
     <body>
+        <div class="full_container">
 
-        <div class="logo" id="logo">
-            Resumez
-        </div>
+            <div class="left_navbar" id="left-navbar">
+                
+                <div class="tools">
+                    
+                    <div class="btn-group-vertical btn-group-toggle" data-toggle="buttons">
+                        <label class="el btn btn-dark btn-sm active" data-toggle="tooltip" title="Details" onclick="activeLayout('form-layout')">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+                            <i class="uil uil-file-alt tool_icon"></i> 
+                        </label>
+                        <label class="el btn btn-dark btn-sm" data-toggle="tooltip" title="Styles" onclick="activeLayout('style-layout')">
+                            <input type="radio" name="options" id="option2" autocomplete="off">
+                            <i class="uil uil-adjust-circle tool_icon"></i>
+                        </label>
+                        <label class="el btn btn-dark btn-sm" data-toggle="tooltip" title="Reset" onclick="activeLayout('reset-layout')">
+                            <input type="radio" name="options" id="option3" autocomplete="off">
+                            <i class="uil uil-redo tool_icon"></i>
+                        </label>
+                    </div>
 
-        <div id="form-layout">
-            <div class="form-font">
-                <form method="POST" action="" class="">
-                    <div class="container" id="newform">
-    
-                        <div class="personal-details-row formBlock">
-    
-                            <div class="heading">
-                                <p>PERSONAL DETAILS</p>
-                            </div>
-    
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Name</label>
-                                    <input type="text" name="name" id="getName" class="form-control" placeholder="Name">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Role</label>
-                                    <input type="text" name="role" id="getRole" class="form-control" placeholder="Role">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Contact No.</label>
-                                    <input type="text" name="phone" id="getContact" class="form-control" placeholder="Contact No. (with Country Code)">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Email ID</label>
-                                    <input type="email" name="emailID" id="getEmailID" class="form-control" placeholder="Email ID">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Address</label>
-                                    <input type="text" name="address" id="getAddress" class="form-control" placeholder="Address">
-                                </div>
-        
-                                <div class="form-group col-md-3">
-                                    <label for="colFormLabel" class="mylabel col-form-label">City</label>
-                                    <input type="text" name="address" id="getCity" class="form-control" placeholder="City">
-                                </div>
-        
-                                <div class="form-group col-md-3">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Pincode</label>
-                                    <input type="number" name="pin" id="getPin" class="form-control" placeholder="Pincode">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">State</label>
-                                    <input type="text" name="state" id="getState" class="form-control" placeholder="State">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Country</label>
-                                    <input type="text" name="country" id="getCountry" class="form-control" placeholder="Country">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Website</label>
-                                    <input type="url" name="website" id="getWebsite" class="form-control" placeholder="Website URL">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Github</label>
-                                    <input type="url" name="github" id="getGithub" class="form-control" placeholder="Github Profile URL">
-                                </div>
-                                
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">LinkedIn</label>
-                                    <input type="url" name="linkedin" id="getLinkedIn" class="form-control" placeholder="LinkedIn Profile URL">
-                                </div>
-        
-                            </div>
-    
-                        </div>
-    
-    
-                        
-                        <div class="skill-row formBlock" id="skill-row">
-    
-                            <div class="heading">
-                                <p>SKILLS</p>
-                            </div>
-    
-                            <div class="form-row mb-4">
-                                <div class="form-group col-md-7">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Skill</label>
-                                    <input type="text" name="skill" id="" class="form-control getSkill" placeholder="Skill">
-                                </div>
-        
-                                <div class="form-group col-md-5">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Level</label> 
-                                    <select class="form-control getLevel" name="level" id="" placeholder="Level">
-                                        <option>Novice</option>
-                                        <option>Intermediate</option>
-                                        <option>Expert</option>
-                                    </select>
-                                </div>
-            
-                            </div>
-    
-                            <div class="text-center mx-2 my-4" id="skillAddBtn">
-                                <button type="button" class="btn btn-danger" id="skillBtn" onclick="skillNewField()">ADD</button>
-                            </div>
-    
-                        </div>
-    
-                        
-                        
-    
-                        <div class="objective-row formBlock">
-    
-                            <div class="heading">
-                                <p>OBJECTIVE</p>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <textarea rows="4" type="text" name="objective" id="getObjective" class="form-control" placeholder="Your objective here..."></textarea>
-                                </div>
-                            </div>
-    
-                        </div>
-                        
-    
-    
-                        
-                        <div class="institute-row formBlock" id="institute-row">
-    
-                            <div class="heading">
-                                <p>EDUCATION</p>
-                            </div>
-    
-                            <div class="form-row mb-4 getEducation">
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Institute</label>
-                                    <input type="text" name="institute" id="" class="form-control getInstitute" placeholder="Institute">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Course</label>
-                                    <input type="text" name="course" id="" class="form-control getCourse" placeholder="Course Name">
-                                </div>
-        
-                                <div class="form-group col-md-6">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Stream</label>
-                                    <input type="text" name="stream" id="" class="form-control getStream" placeholder="Stream/Hons.">
-                                </div>
-        
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Start</label>
-                                    <input type="month" name="start-date" id="" class="form-control getCourseStartDate" placeholder="">
-                                </div>
-        
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">End</label>
-                                    <input type="month" name="end-date" id="" class="form-control getCourseEndDate" placeholder="">
-                                </div>
-        
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Percentage</label>
-                                    <input type="text" name="score" id="" class="form-control getPercentage" placeholder="CGPA/Percentage">
-                                </div>
-    
-                            </div>
-                            
-                            <div class="text-center mx-2 my-4" id="eduAddBtn">
-                                <button type="button" class="btn btn-danger" id="eduBtn" onclick="eduNewField()">ADD</button>
-                            </div>
-    
-                        </div>
-    
-                        
-    
-                        
-                        <div class="experience-row formBlock" id="experience-row">
-    
-                            <div class="heading">
-                                <p>WORK EXPERIENCE</p>
-                            </div>
-    
-                            <div class="form-row mb-4">
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Organization</label>
-                                    <input type="text" name="org" id="" class="form-control getExpOrganization" placeholder="Organization">
-                                </div>
-        
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Role</label>
-                                    <input type="text" name="asrole" id="" class="form-control getExpRole" placeholder="Role">
-                                </div>
-    
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Start</label>
-                                    <input type="month" name="start-date" id="" class="form-control getExpStartDate" placeholder="">
-                                </div>
-        
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">End</label>
-                                    <input type="month" name="end-date" id="" class="form-control getExpEndDate" placeholder="">
-                                </div>
-                                
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Description</label>
-                                    <textarea rows="4" type="text" name="expDesc" id="" class="form-control getExpDescription" placeholder="Description..."></textarea>
-                                </div>
-        
-                            </div>
-                            
-                            <div class="text-center mx-2 my-4" id="expAddBtn">
-                                <button type="button" class="btn btn-danger" id="expBtn" onclick="expNewField()">ADD</button>
-                            </div>
-    
-                        </div>
-    
-                        
-    
-                        
-                        <div class="project-row formBlock" id="project-row">
-    
-                            <div class="heading">
-                                <p>PROJECTS</p>
-                            </div>
-    
-                            <div class="form-row mb-4">
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Title</label>
-                                    <input type="text" name="title" id="" class="form-control getProjectTitle" placeholder="Title">
-                                </div>
-    
-                                <div class="form-group col-md-8">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Technology</label>
-                                    <input type="text" name="tech" id="" class="form-control getProjectTechnology" placeholder="Technology/ Language/ Framework">
-                                </div>
-        
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Date</label>
-                                    <input type="month" name="period" id="" class="form-control getProjectDate" placeholder="">
-                                </div>
-                                
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Description</label>
-                                    <textarea rows="4" type="text" name="projDesc" id="" class="form-control getProjectDescription" placeholder="Description..."></textarea>
-                                </div>
-        
-    
-                            </div>
-    
-                            <div class="text-center mx-2 my-4" id="projectAddBtn">
-                                <button type="button" class="btn btn-danger" id="projBtn" onclick="projectNewField()">ADD</button>
-                            </div>
-    
-                        </div>
-    
-                        
-    
-                        
-                        <div class="award-row formBlock" id="award-row">
-    
-                            <div class="heading">
-                                <p>ACHIEVEMENTS</p>
-                            </div>
-    
-                            <div class="form-row mb-4">
-                                <div class="form-group col-md-8">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Title</label>
-                                    <input type="text" name="awardTitle" id="" class="form-control getAwardTitle" placeholder="Title">
-                                </div>
-    
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Date</label>
-                                    <input type="month" name="period" id="" class="form-control getAwardDate" placeholder="">
-                                </div>
-    
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Description</label>
-                                    <textarea rows="4" type="text" name="projDesc" id="" class="form-control getAwardDescription" placeholder="Description..."></textarea>
-                                </div>
-                                
-                            </div>
-    
-                            <div class="text-center mx-2 my-4" id="awardAddBtn">
-                                <button type="button" class="btn btn-danger" id="awardBtn" onclick="awardNewField()">ADD</button>
-                            </div>
-    
-                        </div>
-    
-                        
-    
-                        
-                        <div class="certification-row formBlock" id="certification-row">
-    
-                            <div class="heading">
-                                <p>CERTIFICATIONS</p>
-                            </div>
-    
-                            <div class="form-row mb-4">
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Title</label>
-                                    <input type="text" name="certificateTitle" id="" class="form-control getCertificateTitle" placeholder="Title">
-                                </div>
-                                
-                                <div class="form-group col-md-8">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Issuer</label>
-                                    <input type="text" name="issuer" id="" class="form-control getIssuer" placeholder="Issuer">
-                                </div>
-    
-                                <div class="form-group col-md-4">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Date</label>
-                                    <input type="month" name="period" id="" class="form-control getCertificateDate" placeholder="">
-                                </div>  
-                            </div>
-    
-                            <div class="text-center mx-2 my-4" id="certificationAddBtn">
-                                <button type="button" class="btn btn-danger" id="certBtn" onclick="certificationNewField()">ADD</button>
-                            </div>
-    
-                        </div>
-    
-    
-    
-    
-                        <div class="language-row formBlock" id="language-row">
-    
-                            <div class="heading">
-                                <p>LANGUAGE</p>
-                            </div>
-    
-                            <div class="form-row mb-4">
-                                <div class="form-group col-md-7">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Language</label>
-                                    <input type="text" name="language" id="" class="form-control getLanguage" placeholder="Language">
-                                </div>
-        
-                                <div class="form-group col-md-5">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Fluency</label> 
-                                    <select class="form-control getFluency" name="fluency" id="" placeholder="Fluency">
-                                        <option>Elementary</option>
-                                        <option>Limited Working</option>
-                                        <option>Professional Working</option>
-                                        <option>Full Professional</option>
-                                        <option>Native</option>
-                                    </select>
-                                </div>
-            
-                            </div>
-    
-                            <div class="text-center mx-2 my-4" id="languageAddBtn">
-                                <button type="button" class="btn btn-danger" id="langBtn" onclick="languageNewField()">ADD</button>
-                            </div>
-    
-                        </div>
-    
-    
-    
-    
-                        <div class="hobby-row formBlock" id="hobby-row">
-    
-                            <div class="heading">
-                                <p>INTERESTS & HOBBIES</p>
-                            </div>
-    
-                            <div class="form-row mb-4">
-                                <div class="form-group col-md-12">
-                                    <label for="colFormLabel" class="mylabel col-form-label">Interest/Hobbies</label>
-                                    <input type="text" name="skill" id="" class="form-control getHobby" placeholder="Interest">
-                                </div>
-            
-                            </div>
-    
-                            <div class="text-center mx-2 my-4" id="hobbyAddBtn">
-                                <button type="button" class="btn btn-danger" id="hobbyBtn" onclick="hobbyNewField()"><i class="bi bi-plus"></i>ADD</button>
-                            </div>
-    
-                        </div>
-    
-                        
-    
-                        
-                        <div class="row form-font font-weight-bold mx-2 my-4">
-                            <div class="col-md-12  text-center" id="genBtn">
-                                <button type="button" class="btn px-5" style="color: #fff; background: #283747; font-weight: 500; font-size: 18px;" onclick="generateResume()">GENERATE</button>
-                            </div>
-                        </div>
+                    <div class="view_button">
+                        <button type="button" name="" id="viewBtn" class="el btn btn-dark btn-sm"  data-toggle="tooltip" title="Preview" onclick="view('preview')"><i class="uil uil-eye tool_icon"></i></button>
                     </div>
-                </form>    
-            </div>
-        </div>
 
-        
-        <div id="resume-layout">
-            <div class="res-template" id="myresume">
-                <div class="res-left text-center px-3 py-2">
-                    <p class="name mt-2" id="putName"></p>
-                    <p class="mainrole" id="putRole"></p>
-                    <div class="personal-details mt-5 px-3 py-3">
-                        <div class="address">
-                            <p class="sub-heading">Address</p>
-                            <p id="putAddressLineOne"></p>
-                            <p class="text-uppercase" id="putAddressLineTwo"></p>
-                            <p class="text-uppercase" id="putAddressLineThree"></p>
-                        </div>
-                        <div class="ph-no mt-4">
-                            <p class="sub-heading">Phone Number</p>
-                            <p id="putContact"><a href=""></a></p>
-                            
-                        </div>
-                        <div class="email mt-4">
-                            <p class="sub-heading">Email Address</p>
-                            <p id="putEmailID"><a href=""></a></p>
-                        </div>
-                        <div class="website mt-4 fieldBlock" id="webBlock">
-                            <p class="sub-heading">Website</p>
-                            <p id="putWebsite" class="isEmpty"><a href=""></a></p>
-                        </div>
-                        <div class="github mt-4 fieldBlock">
-                            <p class="sub-heading">Github</p>
-                            <p id="putGithub" class="isEmpty"><a href=""></a></p>
-                        </div>
-                        <div class="linkedin mt-4 fieldBlock">
-                            <p class="sub-heading">LinkedIn</p>
-                            <p id="putLinkedIn" class="isEmpty"><a href=""></a></p>
-                        </div>
-                    </div>
-                    <div class="languages">
-                        <p class="topic">Skills</p>
-                        <hr class="underline">
-                        <div class="">
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill0"></p>
-                                    <p class="level" id="putLevel0"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill1"></p>
-                                    <p class="level" id="putLevel1"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill2"></p>
-                                    <p class="level" id="putLevel2"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill3"></p>
-                                    <p class="level" id="putLevel3"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill4"></p>
-                                    <p class="level" id="putLevel4"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill5"></p>
-                                    <p class="level" id="putLevel5"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill6"></p>
-                                    <p class="level" id="putLevel6"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill7"></p>
-                                    <p class="level" id="putLevel7"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill8"></p>
-                                    <p class="level" id="putLevel8"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty" id="putSkill9"></p>
-                                    <p class="level" id="putLevel9"></p>
-                                </div>
-                            </div>
-                        </div>		
-                    </div>
-    
-                    <div class="languages">
-                        <p class="topic">languages</p>
-                        <hr class="underline">
-                        <div class="">
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty"  id="putLanguage0"></p>
-                                    <p class="level" id="putFluency0"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty"  id="putLanguage1"></p>
-                                    <p class="level" id="putFluency1"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty"  id="putLanguage2"></p>
-                                    <p class="level" id="putFluency2"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty"  id="putLanguage3"></p>
-                                    <p class="level" id="putFluency3"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty"  id="putLanguage4"></p>
-                                    <p class="level" id="putFluency4"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language isEmpty"  id="putLanguage5"></p>
-                                    <p class="level" id="putFluency5"></p>
-                                </div>
-                            </div>
-                        </div>		
-                    </div>
-    
-                    <div class="languages optional">
-                        <p class="topic">interest & hobbies</p>
-                        <hr class="underline">
-                        <div class="">
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language hob isEmpty firstField" id="putHobby0"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language hob isEmpty" id="putHobby1"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language hob isEmpty" id="putHobby2"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language hob isEmpty" id="putHobby3"></p>
-                                </div>
-                            </div>
-                            <div class="box">
-                                <div class="col6 fieldBlock">
-                                    <p class="language hob isEmpty" id="putHobby4"></p>
-                                </div>
-                                <div class="col6 fieldBlock">
-                                    <p class="language hob isEmpty" id="putHobby5"></p>
-                                </div>
-                            </div>
-                        </div>	
+                    <div>
+                        <button type="button" name="" id="printBtn1" class="el btn btn-info btn-sm"  data-toggle="tooltip" title="Print" onclick="window.print()"><i class="uil uil-print tool_icon"></i></button>
                     </div>
                 </div>
-                <div class="res-right pl-3 pr-4 py-3">
-                    <div class="objective">
-                        <p class="topic text-left mt-0">objective</p>
-                        <hr class="underline">
-                        <p class="content " id="putObjective"></p>
-                    </div>
-                    <div class="education">
-                        <p class="topic text-left">education</p>
-                        <hr class="underline">
-                        <div class="edu " id="putEducation">
-                            <div class="institute fieldBlock">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putInstitute0"></p>
-                                    <p class="course-name">
-                                        <span id="putCourse0"></span>
-                                        <span id="putStream0" style="font-weight: 400;"></span>
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putCourseStartDate0"></span>
-                                        <span id="putCourseEndDate0"></span>
-                                         
-                                    </p>
-                                    <p class="score" id="putPercentage0">
+            </div>
+                
+
+            <div class="left_component" id="left-component">
+                <div class="logo">
+                    Resumez
+                </div>
+                <div id="form-layout">
+                    <div class="form-font">
+                        <form method="POST" action="" class="">
+                            <div class="container" id="newform">
+            
+                                <div class="personal-details-row formBlock">
+            
+                                    <div class="heading">
+                                        <p>Personal Details</p>
+                                    </div>
+            
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <label for="getName" class="mylabel col-form-label">Name</label>
+                                            <input type="text" name="name" id="getName" class="form-control form-control-sm" placeholder="Name">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Role</label>
+                                            <input type="text" name="role" id="getRole" class="form-control form-control-sm" placeholder="Role / Position / Designation">
+                                        </div>
+
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Organization</label>
+                                            <input type="text" name="curr-org" id="getCurrOrg" class="form-control form-control-sm" placeholder="Organization / Institute">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Contact No.</label>
+                                            <input type="text" name="phone" id="getContact" class="form-control form-control-sm" placeholder="Contact No. (with Country Code)">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Email ID</label>
+                                            <input type="email" name="emailID" id="getEmailID" class="form-control form-control-sm" placeholder="Email ID">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Address</label>
+                                            <input type="text" name="address" id="getAddress" class="form-control form-control-sm" placeholder="Address">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">City</label>
+                                            <input type="text" name="address" id="getCity" class="form-control form-control-sm" placeholder="City">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Pincode</label>
+                                            <input type="number" name="pin" id="getPin" class="form-control form-control-sm" placeholder="Pincode">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">State</label>
+                                            <input type="text" name="state" id="getState" class="form-control form-control-sm" placeholder="State">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Country</label>
+                                            <input type="text" name="country" id="getCountry" class="form-control form-control-sm" placeholder="Country">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Website</label>
+                                            <input type="url" name="website" id="getWebsite" class="form-control form-control-sm" placeholder="Website URL">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Github</label>
+                                            <input type="url" name="github" id="getGithub" class="form-control form-control-sm" placeholder="Github Profile URL">
+                                        </div>
                                         
-                                    </p>
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">LinkedIn</label>
+                                            <input type="url" name="linkedin" id="getLinkedIn" class="form-control form-control-sm" placeholder="LinkedIn Profile URL">
+                                        </div>
+                
+                                    </div>
+            
                                 </div>
-                            </div>
-                            <div class="institute fieldBlock">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putInstitute1"></p>
-                                    <p class="course-name">
-                                        <span id="putCourse1"></span>
-                                        <span id="putStream1" style="font-weight: 400;"></span>
-                                    </p>
+            
+            
+                                
+                                <div class="skill-row formBlock" id="skill-row">
+            
+                                    <div class="heading">
+                                        <p>Skills</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-8">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Skill</label>
+                                            <input type="text" name="skill"  class="form-control form-control-sm getSkill" placeholder="Skill">
+                                        </div>
+                
+                                        <div class="form-group col-md-4">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Level</label> 
+                                            <select class="form-control form-control-sm getLevel" name="level"  placeholder="Level">
+                                                <option>Select</option>
+                                                <option>Novice</option>
+                                                <option>Intermediate</option>
+                                                <option>Expert</option>
+                                            </select>
+                                        </div>
+                    
+                                    </div>
+            
+                                    <div class="text-center mx-2 my-4" id="skillAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="skillBtn" onclick="skillNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
                                 </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putCourseStartDate1"></span>
-                                        <span id="putCourseEndDate1"></span>
-                                         
-                                    </p>
-                                    <p class="score" id="putPercentage1">
-                                    </p>
+            
+                                
+                                
+            
+                                <div class="objective-row formBlock">
+            
+                                    <div class="heading">
+                                        <p>Objective</p>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <textarea rows="4" type="text" name="objective" id="getObjective" class="form-control form-control-sm" placeholder="Your objective here..."></textarea>
+                                        </div>
+                                    </div>
+            
                                 </div>
-                            </div>
-                            <div class="institute fieldBlock">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putInstitute2"></p>
-                                    <p class="course-name">
-                                        <span id="putCourse2"></span>
-                                        <span id="putStream2" style="font-weight: 400;"></span>
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putCourseStartDate2"></span>
-                                        <span id="putCourseEndDate2"></span>
-                                         
-                                    </p>
-                                    <p class="score" id="putPercentage2">
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="institute fieldBlock" id="instituteBlock3">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putInstitute3"></p>
-                                    <p class="course-name">
-                                        <span id="putCourse3"></span>
-                                        <span id="putStream3" style="font-weight: 400;"></span>
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putCourseStartDate3"></span>
-                                        <span id="putCourseEndDate3"></span>
-                                         
-                                    </p>
-                                    <p class="score" id="putPercentage3">
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="institute fieldBlock" id="instituteBlock4">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putInstitute4"></p>
-                                    <p class="course-name">
-                                        <span id="putCourse4"></span>
-                                        <span id="putStream4" style="font-weight: 400;"></span>
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putCourseStartDate4"></span>
-                                        <span id="putCourseEndDate4"></span>
-                                         
-                                    </p>
-                                    <p class="score" id="putPercentage4">
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-    
-                    </div>
-                    <div class="experience optional">
-                        <p class="topic text-left">experience</p>
-                        <hr class="underline">
-                        <div class="expBlock mb-2 fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty firstField" id="putExpOrganization0"></p>
-                                    <p class="role" id="putExpRole0">
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putExpStartDate0"></span>
-                                        <span id="putExpEndDate0"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putExpDescription0">
-                        
-                            </div>
-                        </div>
-    
-                        <div class="expBlock mb-2  fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putExpOrganization1"></p>
-                                    <p class="role" id="putExpRole1">
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putExpStartDate1"></span>
-                                        <span id="putExpEndDate1"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putExpDescription1">
-                            </div>
-                        </div>
-    
-                        <div class="expBlock mb-2 fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putExpOrganization2"></p>
-                                    <p class="role" id="putExpRole2">
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putExpStartDate2"></span>
-                                        <span id="putExpEndDate2"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putExpDescription2"></div>
-                        </div>
-    
-                        <div class="expBlock mb-2 fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putExpOrganization3"></p>
-                                    <p class="role" id="putExpRole3">
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putExpStartDate3"></span>
-                                        <span id="putExpEndDate3"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putExpDescription3">
-                            </div>
-                        </div>
-    
-                        <div class="expBlock mb-2 fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putExpOrganization4"></p>
-                                    <p class="role" id="putExpRole4">
-                                    </p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putExpStartDate4"></span>
-                                        <span id="putExpEndDate4"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putExpDescription4">
-                            </div>
-                        </div>
-                        
-    
-                    </div>
-                    <div class="project optional">
-                        <p class="topic text-left">projects</p>
-                        <hr class="underline">
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org text-capitalize isEmpty firstField" id="putProjectTitle0"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putProjectDate0"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putProjectDescription0">
-                            </div>
-                            <div class="technology-used ">
-                                <span id="putProjectTechnology0"></span>
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org text-capitalize isEmpty" id="putProjectTitle1"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putProjectDate1"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putProjectDescription1">
-                            </div>
-                            <div class="technology-used ">
-                                <span id="putProjectTechnology1"></span>
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org text-capitalize isEmpty" id="putProjectTitle2"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putProjectDate2"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putProjectDescription2">
-                            </div>
-                            <div class="technology-used ">
-                                <span id="putProjectTechnology2"></span>
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org text-capitalize isEmpty" id="putProjectTitle3"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putProjectDate3"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putProjectDescription3">
-                            </div>
-                            <div class="technology-used ">
-                                <span id="putProjectTechnology3"></span>
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org text-capitalize isEmpty" id="putProjectTitle4"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putProjectDate4"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putProjectDescription4">
-                            </div>
-                            <div class="technology-used ">
-                                <span id="putProjectTechnology4"></span>
-                            </div>
-                        </div>
-                            
-                    </div>
-    
-                    <div class="achievement optional">
-                        <p class="topic text-left">achievements</p>
-                        <hr class="underline">
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty firstField" id="putAwardTitle0"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putAwardDate0"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putAwardDescription0">
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putAwardTitle1"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putAwardDate1"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putAwardDescription1">
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putAwardTitle2"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putAwardDate2"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putAwardDescription2">
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putAwardTitle3"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putAwardDate3"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putAwardDescription3">
-                            </div>
-                        </div>
-                        <div class="blocks fieldBlock">
-                            <div class="institute ">
-                                <div class="left-part">
-                                    <p class="org isEmpty" id="putAwardTitle4"></p>
-                                </div>
-                                <div class="right-part">
-                                    <p class="period">
-                                         
-                                        <span id="putAwardDate4"></span>
-                                         
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="description " id="putAwardDescription4">
-                            </div>
-                        </div>
-                    </div>
-    
-    
-                    <div class="training">
-                        <p class="topic text-left">certifications</p>
-                        <hr class="underline">
-                        <div class="institute  fieldBlock">
-                            <div class="left-part">
-                                <p class="org isEmpty" id="putCertificateTitle0"></p>
-                                <p class="role" id="putIssuer0">
-                                </p>
-                            </div>
-                            <div class="right-part">
-                                <p class="period">
-                                     
-                                    <span id="putCertificateDate0"></span>
-                                     
-                                </p>
-                            </div>
-                        </div>
-                        <div class="institute  fieldBlock">
-                            <div class="left-part">
-                                <p class="org isEmpty" id="putCertificateTitle1"></p>
-                                <p class="role" id="putIssuer1">
-                                </p>
-                            </div>
-                            <div class="right-part">
-                                <p class="period">
-                                     
-                                    <span id="putCertificateDate1"></span>
-                                     
-                                </p>
-                            </div>
-                        </div>
-                        <div class="institute  fieldBlock">
-                            <div class="left-part">
-                                <p class="org isEmpty" id="putCertificateTitle2"></p>
-                                <p class="role" id="putIssuer2">
-                                </p>
-                            </div>
-                            <div class="right-part">
-                                <p class="period">
+                                
+            
+            
+                                
+                                <div class="institute-row formBlock" id="institute-row">
+            
+                                    <div class="heading">
+                                        <p>Education</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4 getEducation">
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Institute</label>
+                                            <input type="text" name="institute"  class="form-control form-control-sm getInstitute" placeholder="Institute">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Course</label>
+                                            <input type="text" name="course"  class="form-control form-control-sm getCourse" placeholder="Course Name">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Stream</label>
+                                            <input type="text" name="stream"  class="form-control form-control-sm getStream" placeholder="Stream/Hons.">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Start</label>
+                                            <input type="month" name="start-date"  class="form-control form-control-sm getCourseStartDate" placeholder="">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">End</label>
+                                            <input type="month" name="end-date"  class="form-control form-control-sm getCourseEndDate" placeholder="">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Percentage</label>
+                                            <input type="text" name="score"  class="form-control form-control-sm getPercentage" placeholder="CGPA/Percentage">
+                                        </div>
+            
+                                    </div>
                                     
-                                    <span id="putCertificateDate2"></span>
-                                     
-                                </p>
+                                    <div class="text-center mx-2 my-4" id="eduAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="eduBtn" onclick="eduNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
+            
+                                
+            
+                                
+                                <div class="experience-row formBlock" id="experience-row">
+            
+                                    <div class="heading">
+                                        <p>Experience</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Organization</label>
+                                            <input type="text" name="org"  class="form-control form-control-sm getExpOrganization" placeholder="Organization">
+                                        </div>
+                
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Role</label>
+                                            <input type="text" name="asrole"  class="form-control form-control-sm getExpRole" placeholder="Role">
+                                        </div>
+            
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Start</label>
+                                            <input type="month" name="start-date"  class="form-control form-control-sm getExpStartDate" placeholder="">
+                                        </div>
+                
+                                        <div class="form-group col-md-6">
+                                            <label for="colFormLabel" class="mylabel col-form-label">End</label>
+                                            <input type="month" name="end-date"  class="form-control form-control-sm getExpEndDate" placeholder="">
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Description</label>
+                                            <textarea rows="4" type="text" name="expDesc"  class="form-control form-control-sm getExpDescription" placeholder="Description..."></textarea>
+                                        </div>
+                
+                                    </div>
+                                    
+                                    <div class="text-center mx-2 my-4" id="expAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="expBtn" onclick="expNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
+            
+                                
+                                <div class="publication-row formBlock" id="publication-row">
+            
+                                    <div class="heading">
+                                        <p>Publications</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Title</label>
+                                            <input type="text" name="title"  class="form-control form-control-sm getPubTitle" placeholder="Title">
+                                        </div>
+            
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Publisher</label>
+                                            <input type="text" name="pub"  class="form-control form-control-sm getPublisher" placeholder="Publisher">
+                                        </div>
+
+                                        <div class="form-group col-md-8">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Link</label>
+                                            <input type="text" name="link"  class="form-control form-control-sm getPubLink" placeholder="URL">
+                                        </div>
+                
+                                        <div class="form-group col-md-4">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Date</label>
+                                            <input type="month" name="period"  class="form-control form-control-sm getPubDate" placeholder="">
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Description</label>
+                                            <textarea rows="4" type="text" name="pubDesc"  class="form-control form-control-sm getPubDescription" placeholder="Description..."></textarea>
+                                        </div>
+                
+            
+                                    </div>
+            
+                                    <div class="text-center mx-2 my-4" id="publicationAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="pubBtn" onclick="publicationNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
+                                
+                                <div class="project-row formBlock" id="project-row">
+            
+                                    <div class="heading">
+                                        <p>Projects</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Title</label>
+                                            <input type="text" name="title"  class="form-control form-control-sm getProjectTitle" placeholder="Title">
+                                        </div>
+            
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Technology</label>
+                                            <input type="text" name="tech"  class="form-control form-control-sm getProjectTechnology" placeholder="Technology/ Language/ Framework">
+                                        </div>
+
+                                        <div class="form-group col-md-8">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Link</label>
+                                            <input type="text" name="tech"  class="form-control form-control-sm getProjectLink" placeholder="URL">
+                                        </div>
+                
+                                        <div class="form-group col-md-4">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Date</label>
+                                            <input type="month" name="period"  class="form-control form-control-sm getProjectDate" placeholder="">
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Description</label>
+                                            <textarea rows="4" type="text" name="projDesc"  class="form-control form-control-sm getProjectDescription" placeholder="Description..."></textarea>
+                                        </div>
+                
+            
+                                    </div>
+            
+                                    <div class="text-center mx-2 my-4" id="projectAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="projBtn" onclick="projectNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
+            
+                                
+            
+                                
+                                <div class="award-row formBlock" id="award-row">
+            
+                                    <div class="heading">
+                                        <p>Achievements</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Title</label>
+                                            <input type="text" name="awardTitle"  class="form-control form-control-sm getAwardTitle" placeholder="Title">
+                                        </div>
+
+                                        <div class="form-group col-md-8">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Awarder</label>
+                                            <input type="text" name="awardTitle"  class="form-control form-control-sm getAwarder" placeholder="Awarder">
+                                        </div>
+            
+                                        <div class="form-group col-md-4">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Date</label>
+                                            <input type="month" name="period"  class="form-control form-control-sm getAwardDate" placeholder="">
+                                        </div>  
+                                    </div>
+            
+                                    <div class="text-center mx-2 my-4" id="awardAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="awardBtn" onclick="awardNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
+            
+                                
+            
+                                
+                                <div class="certification-row formBlock" id="certification-row">
+            
+                                    <div class="heading">
+                                        <p>Certifications</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Title</label>
+                                            <input type="text" name="certificateTitle"  class="form-control form-control-sm getCertificateTitle" placeholder="Title">
+                                        </div>
+                                        
+                                        <div class="form-group col-md-8">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Issuer</label>
+                                            <input type="text" name="issuer"  class="form-control form-control-sm getIssuer" placeholder="Issuer">
+                                        </div>
+            
+                                        <div class="form-group col-md-4">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Date</label>
+                                            <input type="month" name="period"  class="form-control form-control-sm getCertificateDate" placeholder="">
+                                        </div>  
+                                    </div>
+            
+                                    <div class="text-center mx-2 my-4" id="certificationAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="certBtn" onclick="certificationNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
+            
+            
+            
+            
+                                <div class="language-row formBlock" id="language-row">
+            
+                                    <div class="heading">
+                                        <p>Languages</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-7">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Language</label>
+                                            <input type="text" name="language"  class="form-control form-control-sm getLanguage" placeholder="Language">
+                                        </div>
+                
+                                        <div class="form-group col-md-5">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Fluency</label> 
+                                            <select class="form-control form-control-sm getFluency" name="fluency"  placeholder="Fluency">
+                                                <option>Select</option>
+                                                <option>Elementary</option>
+                                                <option>Limited Working</option>
+                                                <option>Professional Working</option>
+                                                <option>Full Professional</option>
+                                                <option>Native</option>
+                                            </select>
+                                        </div>
+                    
+                                    </div>
+            
+                                    <div class="text-center mx-2 my-4" id="languageAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="langBtn" onclick="languageNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
+            
+            
+            
+            
+                                <div class="hobby-row formBlock" id="hobby-row">
+            
+                                    <div class="heading">
+                                        <p>Interests & Hobbies</p>
+                                    </div>
+            
+                                    <div class="form-row mb-4">
+                                        <div class="form-group col-md-12">
+                                            <label for="colFormLabel" class="mylabel col-form-label">Interest/Hobbies</label>
+                                            <input type="text" name="skill"  class="form-control form-control-sm getHobby" placeholder="Interest">
+                                        </div>
+                    
+                                    </div>
+            
+                                    <div class="text-center mx-2 my-4" id="hobbyAddBtn">
+                                        <button type="button" class="btn btn-danger btn-sm" id="hobbyBtn" onclick="hobbyNewField()"><i class="uil uil-plus"></i>ADD&ensp;</button>
+                                    </div>
+            
+                                </div>
                             </div>
-                        </div>
-                        <div class="institute  fieldBlock">
-                            <div class="left-part">
-                                <p class="org isEmpty" id="putCertificateTitle3"></p>
-                                <p class="role" id="putIssuer3">
-                                </p>
+                        </form>    
+                    </div>
+                </div>
+                <div id="style-layout">
+                    <div class="style_layout">
+                        <div class="container">
+                            <div class="formBlock">
+                                <div class="heading">Color</div>
+                                <div class="colors">
+                                    <div class="clr color1" onclick="changeColor('#f44336')"></div>
+                                    <div class="clr color2" onclick="changeColor('#ff9800')"></div>
+                                    <div class="clr color3" onclick="changeColor('#ffd500')"></div>
+                                    <div class="clr color4" onclick="changeColor('#009688')"></div>
+                                    <div class="clr color5" onclick="changeColor('#2196F3')"></div>
+                                    <div class="clr color6" onclick="changeColor('#3f51b5')"></div>
+                                    <div class="clr color7" onclick="changeColor('#673ab7')"></div>    
+                                </div>
+                                <div class="or">OR</div>
+                                <div class="frm form-row">
+                                    <div class="frm form-group col-sm-12">
+                                        <input type="text" name="color" id="getColor" class="form-control form-control-sm" placeholder="Enter HEX color code">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="right-part">
-                                <p class="period">
-                                     
-                                    <span id="putCertificateDate3"></span>
-                                     
-                                </p>
+                            <div class="formBlock">
+                                <div class="heading">Font</div>
+                                <div class="btn btn-group-toggle fonts" data-toggle="buttons">
+                                    <label class="el btn btn-outline-light font active" onclick="changeFont('Montserrat')">
+                                        <input type="radio" name="optionsfont" id="fontoption1">
+                                        Montserrat
+                                    </label>
+                                    <label class="el btn btn-outline-light font" onclick="changeFont('Lato')">
+                                        <input type="radio" name="optionsfont" id="fontoption2">
+                                        Lato
+                                    </label>
+                                    <label class="el btn btn-outline-light font" style="line-height: 3rem;" onclick="changeFont('Helvetica')">
+                                        <input type="radio" name="optionsfont" id="fontoption3">
+                                        Helvetica
+                                    </label>
+                                    <label class="el btn btn-outline-light font" onclick="changeFont('Times New Roman')">
+                                        <input type="radio" name="optionsfont" id="fontoption4">
+                                        Times New Roman
+                                    </label>
+                                    <label class="el btn btn-outline-light font" onclick="changeFont('EB Garamond')">
+                                        <input type="radio" name="optionsfont" id="fontoption5">
+                                        Garamond
+                                    </label>
+                                    <label class="el btn btn-outline-light font" onclick="changeFont('Roboto')">
+                                        <input type="radio" name="optionsfont" id="fontoption6">
+                                        Roboto
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <div class="institute  fieldBlock">
-                            <div class="left-part">
-                                <p class="org isEmpty" id="putCertificateTitle4"></p>
-                                <p class="role" id="putIssuer4">
-                                </p>
-                            </div>
-                            <div class="right-part">
-                                <p class="period">
-                                     
-                                    <span id="putCertificateDate4"></span>
-                                     
-                                </p>
+                            <div class="formBlock">
+                                <div class="heading">Font Size</div>
+                                <div class="frm">
+                                    <label for="slider1">Name</label>
+                                    <input type="range" class="custom-range" min="0" max="4.5" step="0.25" id="slider1">
+                                </div>
+                                <div class="frm">
+                                    <label for="slider2">Heading</label>
+                                    <input type="range" class="custom-range" min="0" max="1.7" step="0.17" id="slider2">
+                                </div>
+                                <div class="frm">
+                                    <label for="slider3">Title</label>
+                                    <input type="range" class="custom-range" min="0" max="1.7" step="0.17" id="slider3">
+                                </div>
+                                <div class="frm">
+                                    <label for="slider4">Sub-title</label>
+                                    <input type="range" class="custom-range" min="0" max="1.5" step="0.15" id="slider4">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div id="reset-layout">
+                    <div class="reset_layout">
+                        <div class="container">
+                            <div class="formBlock">
+                                <div class="heading">Reset Sections</div>
+                                <div class="btn fonts">
+                                    <div class="el btn btn-outline-light font" onclick="contactReset()">
+                                        Contacts
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('education')">
+                                        Education
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('skill')">
+                                        Skills
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('experience')">
+                                        Experience
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('achievement')">
+                                        Achievements
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('publication')">
+                                        Publications
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('language')">
+                                        Languages
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('project')">
+                                        Projects
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('hobby')">
+                                        Hobbies
+                                    </div>
+                                    <div class="el btn btn-outline-light font" onclick="internalReset('certification')">
+                                        Certifications
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="formBlock">
+                                <div class="heading">Reset Layout</div>
+                                <div class="btn fonts">
+                                    <div class="el btn btn-danger font" onclick="externalReset()">Reset Blocks</div>
+                                    <div class="el btn btn-danger font" onclick="masterReset()">Master Reset</div>
+                                </div> 
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <footer id="footer">
+                    <div class="footer-copyright text-center mt-5 py-3">
+                        Developed by <a target="_blank" href="https://bit.ly/csubhradipta" style="text-decoration: none;">Subhradipta Choudhury</a>
+                    </div>
+                </footer>
             </div>
-            <div class="text-center mx-2 my-4" id="buttons">
-                <button type="button" class="btn px-4" style="color: #fff; background: #932432; font-weight: 500; font-size: 18px;" onclick="back()" >EDIT</button>
-                <div id="download" style="display: inline-block;">
-                    <button type="button" id="downloadBtn" class="btn px-4" style="color: #fff; background: #3c1874; font-weight: 500; font-size: 18px;" onclick="window.print()">SAVE</button>     
+
+            <div class="right_component" id="myresume">
+                <div class="close_button">
+                    <button type="button" name="" id="printBtn2" class="el btn btn-dark btn-sm"  data-toggle="tooltip" title="Print" onclick="window.print()"><i class="uil uil-print tool_icon"></i></button>
+                    <button type="button" name="" id="closeBtn" class="el btn btn-danger btn-sm"  data-toggle="tooltip" title="Close" onclick="view('close')"><i class="uil uil-times tool_icon"></i></button>
+                </div>
+                <div id="resume-layout">
+                    <div class="resume_template">
+                        <div class="resume_head" id="resume-head">
+                            <div class="resume_name_address">
+                                <div class="resume_name_wrapper" id="name-wrapper">
+                                    <div class="resume_name" id="putName"></div>
+                                    <div class="resume_my_role" id="putRole"></div>
+                                    <div class="resume_my_role" id="putCurrOrg"></div>
+                                </div>
+                            
+                                <div class="resume_address_wrapper" id="addressWrapper">
+                                    <div class="resume_title" id="address-title">Address</div>
+                                    <div class="resume_address" id="putAddress"></div>    
+                                </div>
+                            </div>
+                            <div class="resume_contact_details" id="res-contact-details">
+                                <div class="resume_phn contact_block" data-reference="161">
+                                    <i class="fa fa-phone resume_icon" aria-hidden="true"></i>
+                                    <a target="_blank" href="#" class="contact_links" id="putContact"></a> 
+                                </div>
+                                <div class="resume_email contact_block" data-reference="162">
+                                    <i class="fa fa-envelope resume_icon" aria-hidden="true"></i>
+                                    <a target="_blank" href="#" class="contact_links" id="putEmailID"></a>
+                                </div>
+                                <div class="resume_website contact_block" data-reference="163">
+                                    <i class="fa fa-globe resume_icon" aria-hidden="true"></i>
+                                    <a target="_blank" href="#" class="contact_links" id="putWebsite"></a>
+                                </div>
+                                <div class="resume_github contact_block" data-reference="164">
+                                    <i class="fa fa-github resume_icon" aria-hidden="true"></i>
+                                    <a target="_blank" href="#" class="contact_links" id="putGithub"></a>
+                                </div>
+                                <div class="resume_linkedin contact_block" data-reference="165">
+                                    <i class="fa fa-linkedin resume_icon"  aria-hidden="true"></i>
+                                    <a target="_blank" href="#" class="contact_links" id="putLinkedIn"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <hr class="rule" id="rule">
+                        <div class="resume_content" id="resume_content">
+                            <div class="dropdiv resume_col_1" id="col-1">
+                                <div class="res_col_1 resume_skills resume-skill" data-reference="11" id="resume-skill">
+                                    <div class="resume_title">Skills</div>
+                                    <div class="skill_container">
+                                        <div class="skill_block" data-reference="110">
+                                            <div class="skill_name" id="putSkill0"></div>
+                                            <div class="skill_level" id="putLevel0"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="111">
+                                            <div class="skill_name" id="putSkill1"></div>
+                                            <div class="skill_level" id="putLevel1"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="112">
+                                            <div class="skill_name" id="putSkill2"></div>
+                                            <div class="skill_level" id="putLevel2"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="113">
+                                            <div class="skill_name" id="putSkill3"></div>
+                                            <div class="skill_level" id="putLevel3"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="114">
+                                            <div class="skill_name" id="putSkill4"></div>
+                                            <div class="skill_level" id="putLevel4"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="115">
+                                            <div class="skill_name" id="putSkill5"></div>
+                                            <div class="skill_level" id="putLevel5"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="116">
+                                            <div class="skill_name" id="putSkill6"></div>
+                                            <div class="skill_level" id="putLevel6"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="117">
+                                            <div class="skill_name" id="putSkill7"></div>
+                                            <div class="skill_level" id="putLevel7"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="118">
+                                            <div class="skill_name" id="putSkill8"></div>
+                                            <div class="skill_level" id="putLevel8"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="119">
+                                            <div class="skill_name" id="putSkill9"></div>
+                                            <div class="skill_level" id="putLevel9"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="1110">
+                                            <div class="skill_name" id="putSkill10"></div>
+                                            <div class="skill_level" id="putLevel10"></div>
+                                        </div>
+                                        <div class="skill_block" data-reference="1111">
+                                            <div class="skill_name" id="putSkill11"></div>
+                                            <div class="skill_level" id="putLevel11"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="res_col_1 resume_achievements resume-achievement" data-reference="12" id="resume-achievement">
+                                    <div class="resume_title">Achievements</div>
+                                    <div class="achievement_container">
+                                        <div class="achievement_block" data-reference="120">
+                                            <div class="achievement_block_col_1">
+                                                <div class="achievement_name" id="putAwardTitle0"></div>
+                                                <div class="achievement_platform" id="putAwarder0"></div>
+                                            </div>
+                                            <div class="achievement_block_col_2">
+                                                <div class="achievement_time" id="putAwardDate0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="achievement_block" data-reference="121">
+                                            <div class="achievement_block_col_1">
+                                                <div class="achievement_name" id="putAwardTitle1"></div>
+                                                <div class="achievement_platform" id="putAwarder1"></div>
+                                            </div>
+                                            <div class="achievement_block_col_2">
+                                                <div class="achievement_time" id="putAwardDate1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="achievement_block" data-reference="122">
+                                            <div class="achievement_block_col_1">
+                                                <div class="achievement_name" id="putAwardTitle2"></div>
+                                                <div class="achievement_platform" id="putAwarder2"></div>
+                                            </div>
+                                            <div class="achievement_block_col_2">
+                                                <div class="achievement_time" id="putAwardDate2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="achievement_block" data-reference="123">
+                                            <div class="achievement_block_col_1">
+                                                <div class="achievement_name" id="putAwardTitle3"></div>
+                                                <div class="achievement_platform" id="putAwarder3"></div>
+                                            </div>
+                                            <div class="achievement_block_col_2">
+                                                <div class="achievement_time" id="putAwardDate3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="achievement_block" data-reference="124">
+                                            <div class="achievement_block_col_1">
+                                                <div class="achievement_name" id="putAwardTitle4"></div>
+                                                <div class="achievement_platform" id="putAwarder4"></div>
+                                            </div>
+                                            <div class="achievement_block_col_2">
+                                                <div class="achievement_time" id="putAwardDate4"></div>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                </div>
+
+                                <div class="res_col_1 resume_languages resume-language" data-reference="13" id="resume-language">
+                                    <div class="resume_title">Languages</div>
+                                    <div class="language_container">
+                                        <div class="language_block" data-reference="130">
+                                            <div class="language_name" id="putLanguage0"></div>
+                                            <div class="language_level" id="putFluency0"></div>
+                                        </div>
+                                        <div class="language_block" data-reference="131">
+                                            <div class="language_name" id="putLanguage1"></div>
+                                            <div class="language_level" id="putFluency1"></div>
+                                        </div>
+                                        <div class="language_block" data-reference="132">
+                                            <div class="language_name" id="putLanguage2"></div>
+                                            <div class="language_level" id="putFluency2"></div>
+                                        </div>
+                                        <div class="language_block" data-reference="133">
+                                            <div class="language_name" id="putLanguage3"></div>
+                                            <div class="language_level" id="putFluency3"></div>
+                                        </div>
+                                        <div class="language_block" data-reference="134">
+                                            <div class="language_name" id="putLanguage4"></div>
+                                            <div class="language_level" id="putFluency4"></div>
+                                        </div>
+                                        <div class="language_block" data-reference="135">
+                                            <div class="language_name" id="putLanguage5"></div>
+                                            <div class="language_level" id="putFluency5"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="res_col_1 resume_hobbies resume-hobby" data-reference="14" id="resume-hobby">
+                                    <div class="resume_title">Interest & Hobbies</div>
+                                    <div class="hobby_container">
+                                        <div class="hobby_block" data-reference="140">
+                                            <div class="hobby_name" id="putHobby0"></div>
+                                        </div>
+                                        <div class="hobby_block" data-reference="141">
+                                            <div class="hobby_name" id="putHobby1"></div>
+                                        </div>
+                                        <div class="hobby_block" data-reference="142">
+                                            <div class="hobby_name" id="putHobby2"></div>
+                                        </div>
+                                        <div class="hobby_block" data-reference="143">
+                                            <div class="hobby_name" id="putHobby3"></div>
+                                        </div>
+                                        <div class="hobby_block" data-reference="144">
+                                            <div class="hobby_name" id="putHobby4"></div>
+                                        </div>
+                                        <div class="hobby_block" data-reference="145">
+                                            <div class="hobby_name" id="putHobby5"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdiv resume_col_2" id="col-2">
+                                <div class="res_col_2 resume_objective resume-objective" data-reference="21" id="resume-objective">
+                                    <div class="resume_title">About Me</div>
+                                    <div class="resume_about" id="putObjective"></div>
+                                </div>
+                                <div class="res_col_2 resume_education resume-education" data-reference="22" id="resume-education">
+                                    <div class="resume_title">Education</div>
+                                    <div class="education_container">
+                                        <div class="education_block" data-reference="220">
+                                            <div class="education_block_col_1">
+                                                <div class="education_name" id="putInstitute0"></div>
+                                                <div class="education_course_name">
+                                                    <span class="education_course" id="putCourse0"></span>
+                                                    <span class="education_stream" id="putStream0"></span>
+                                                </div>
+                                            </div>
+                                            <div class="education_block_col_2">
+                                                <div class="education_period">
+                                                    <span id="putCourseStartDate0"></span>
+                                                    <span id="putCourseEndDate0"></span>
+                                                </div>
+                                                <div class="education_score" id="putPercentage0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="education_block" data-reference="221">
+                                            <div class="education_block_col_1">
+                                                <div class="education_name" id="putInstitute1"></div>
+                                                <div class="education_course_name">
+                                                    <span class="education_course" id="putCourse1"></span>
+                                                    <span class="education_stream" id="putStream1"></span>
+                                                </div>
+                                            </div>
+                                            <div class="education_block_col_2">
+                                                <div class="education_period">
+                                                    <span id="putCourseStartDate1"></span>
+                                                    <span id="putCourseEndDate1"></span>
+                                                </div>
+                                                <div class="education_score" id="putPercentage1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="education_block" data-reference="222">
+                                            <div class="education_block_col_1">
+                                                <div class="education_name" id="putInstitute2"></div>
+                                                <div class="education_course_name">
+                                                    <span class="education_course" id="putCourse2"></span>
+                                                    <span class="education_stream" id="putStream2"></span>
+                                                </div>
+                                            </div>
+                                            <div class="education_block_col_2">
+                                                <div class="education_period">
+                                                    <span id="putCourseStartDate2"></span>
+                                                    <span id="putCourseEndDate2"></span>
+                                                </div>
+                                                <div class="education_score" id="putPercentage2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="education_block" data-reference="223">
+                                            <div class="education_block_col_1">
+                                                <div class="education_name" id="putInstitute3"></div>
+                                                <div class="education_course_name">
+                                                    <span class="education_course" id="putCourse3"></span>
+                                                    <span class="education_stream" id="putStream3"></span>
+                                                </div>
+                                            </div>
+                                            <div class="education_block_col_2">
+                                                <div class="education_period">
+                                                    <span id="putCourseStartDate3"></span>
+                                                    <span id="putCourseEndDate3"></span>
+                                                </div>
+                                                <div class="education_score" id="putPercentage3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="education_block" data-reference="224">
+                                            <div class="education_block_col_1">
+                                                <div class="education_name" id="putInstitute4"></div>
+                                                <div class="education_course_name">
+                                                    <span class="education_course" id="putCourse4"></span>
+                                                    <span class="education_stream" id="putStream4"></span>
+                                                </div>
+                                            </div>
+                                            <div class="education_block_col_2">
+                                                <div class="education_period">
+                                                    <span id="putCourseStartDate4"></span>
+                                                    <span id="putCourseEndDate4"></span>
+                                                </div>
+                                                <div class="education_score" id="putPercentage4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="res_col_2 resume_experience resume-experience" data-reference="23" id="resume-experience">
+                                    <div class="resume_title">Experience</div>
+                                    <div class="experience_container">
+                                        <div class="experience_block" data-reference="230">
+                                        <div class="experience_block_row_1">
+                                            <div class="experience_block_col_1_1">
+                                                <div class="experience_name" id="putExpOrganization0"></div>
+                                                <div class="experience_role_name" id="putExpRole0"></div>
+                                            </div>
+                                            <div class="experience_block_col_1_2">
+                                                <div class="experience_period">
+                                                    <span id="putExpStartDate0"></span>
+                                                    <span id="putExpEndDate0"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="experience_block_row_2">
+                                            <div class="experience_description" id="putExpDescription0"></div>
+                                        </div>
+                                        </div>
+                                        <div class="experience_block" data-reference="231">
+                                            <div class="experience_block_row_1">
+                                                <div class="experience_block_col_1_1">
+                                                    <div class="experience_name" id="putExpOrganization1"></div>
+                                                    <div class="experience_role_name" id="putExpRole1"></div>
+                                                </div>
+                                                <div class="experience_block_col_1_2">
+                                                    <div class="experience_period">
+                                                        <span id="putExpStartDate1"></span>
+                                                        <span id="putExpEndDate1"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="experience_block_row_2">
+                                                <div class="experience_description" id="putExpDescription1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="experience_block" data-reference="232">
+                                            <div class="experience_block_row_1">
+                                                <div class="experience_block_col_1_1">
+                                                    <div class="experience_name" id="putExpOrganization2"></div>
+                                                    <div class="experience_role_name" id="putExpRole2"></div>
+                                                </div>
+                                                <div class="experience_block_col_1_2">
+                                                    <div class="experience_period">
+                                                        <span id="putExpStartDate2"></span>
+                                                        <span id="putExpEndDate2"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="experience_block_row_2">
+                                                <div class="experience_description" id="putExpDescription2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="experience_block" data-reference="233">
+                                            <div class="experience_block_row_1">
+                                                <div class="experience_block_col_1_1">
+                                                    <div class="experience_name" id="putExpOrganization3"></div>
+                                                    <div class="experience_role_name" id="putExpRole3"></div>
+                                                </div>
+                                                <div class="experience_block_col_1_2">
+                                                    <div class="experience_period">
+                                                        <span id="putExpStartDate3"></span>
+                                                        <span id="putExpEndDate3"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="experience_block_row_2">
+                                                <div class="experience_description" id="putExpDescription3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="experience_block" data-reference="234">
+                                            <div class="experience_block_row_1">
+                                                <div class="experience_block_col_1_1">
+                                                    <div class="experience_name" id="putExpOrganization4"></div>
+                                                    <div class="experience_role_name" id="putExpRole4"></div>
+                                                </div>
+                                                <div class="experience_block_col_1_2">
+                                                    <div class="experience_period">
+                                                        <span id="putExpStartDate4"></span>
+                                                        <span id="putExpEndDate4"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="experience_block_row_2">
+                                                <div class="experience_description" id="putExpDescription4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="res_col_2 resume_publications resume-publication" data-reference="24" id="resume-publication">
+                                    <div class="resume_title">Publications</div>
+                                    <div class="publication_container">
+                                        <div class="publication_block" data-reference="240">
+                                            <div class="publication_block_row_1">
+                                                <div class="publication_block_col_1_1">
+                                                    <div class="publication_name" id="putPubTitle0"></div>
+                                                    <div class="publication_platform" id="putPublisher0"></div>
+                                                </div>
+                                                <div class="publication_block_col_1_2">
+                                                    <div class="publication_time" id="putPubDate0"></div>
+                                                </div>
+                                            </div>
+                                            <div class="publication_block_row_2">
+                                                <div class="publication_link">
+                                                    <a target="_blank" href="#" id="putPubLink0"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="publication_block_row_3">
+                                                <div class="publication_description" id="putPubDescription0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="publication_block" data-reference="241">
+                                            <div class="publication_block_row_1">
+                                                <div class="publication_block_col_1_1">
+                                                    <div class="publication_name" id="putPubTitle1"></div>
+                                                    <div class="publication_platform" id="putPublisher1"></div>
+                                                </div>
+                                                <div class="publication_block_col_1_2">
+                                                    <div class="publication_time" id="putPubDate1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="publication_block_row_2">
+                                                <div class="publication_link">
+                                                    <a target="_blank" href="#" id="putPubLink1"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="publication_block_row_3">
+                                                <div class="publication_description" id="putPubDescription1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="publication_block" data-reference="242">
+                                            <div class="publication_block_row_1">
+                                                <div class="publication_block_col_1_1">
+                                                    <div class="publication_name" id="putPubTitle2"></div>
+                                                    <div class="publication_platform" id="putPublisher2"></div>
+                                                </div>
+                                                <div class="publication_block_col_1_2">
+                                                    <div class="publication_time" id="putPubDate2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="publication_block_row_2">
+                                                <div class="publication_link">
+                                                    <a target="_blank" href="#" id="putPubLink2"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="publication_block_row_3">
+                                                <div class="publication_description" id="putPubDescription2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="publication_block" data-reference="243">
+                                            <div class="publication_block_row_1">
+                                                <div class="publication_block_col_1_1">
+                                                    <div class="publication_name" id="putPubTitle3"></div>
+                                                    <div class="publication_platform" id="putPublisher3"></div>
+                                                </div>
+                                                <div class="publication_block_col_1_2">
+                                                    <div class="publication_time" id="putPubDate3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="publication_block_row_2">
+                                                <div class="publication_link">
+                                                    <a target="_blank" href="#" id="putPubLink3"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="publication_block_row_3">
+                                                <div class="publication_description" id="putPubDescription3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="publication_block" data-reference="244">
+                                            <div class="publication_block_row_1">
+                                                <div class="publication_block_col_1_1">
+                                                    <div class="publication_name" id="putPubTitle4"></div>
+                                                    <div class="publication_platform" id="putPublisher4"></div>
+                                                </div>
+                                                <div class="publication_block_col_1_2">
+                                                    <div class="publication_time" id="putPubDate4"></div>
+                                                </div>
+                                            </div>
+                                            <div class="publication_block_row_2">
+                                                <div class="publication_link">
+                                                    <a target="_blank" href="#" id="putPubLink4"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="publication_block_row_3">
+                                                <div class="publication_description" id="putPubDescription4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="res_col_2 resume_projects resume-project" data-reference="25" id="resume-project">
+                                    <div class="resume_title">Projects</div>
+                                    <div class="project_container">
+                                        <div class="project_block" data-reference="250">
+                                            <div class="project_block_row_1">
+                                                <div class="project_block_col_1_1">
+                                                    <div class="project_name" id="putProjectTitle0"></div>
+                                                </div>
+                                                <div class="project_block_col_1_2">
+                                                    <div class="project_time" id="putProjectDate0"></div>
+                                                </div>
+                                            </div>
+                                            <div class="project_block_row_2">
+                                                <div class="project_technology" id="putProjectTechnology0"></div>
+                                                <div class="project_link">
+                                                    <a target="_blank" href="#" id="putProjectLink0"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="project_block_row_3">
+                                                <div class="project_description" id="putProjectDescription0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="project_block" data-reference="251">
+                                            <div class="project_block_row_1">
+                                                <div class="project_block_col_1_1">
+                                                    <div class="project_name" id="putProjectTitle1"></div>
+                                                </div>
+                                                <div class="project_block_col_1_2">
+                                                    <div class="project_time" id="putProjectDate1"></div>
+                                                </div>
+                                            </div>
+                                            <div class="project_block_row_2">
+                                                <div class="project_technology" id="putProjectTechnology1"></div>
+                                                <div class="project_link">
+                                                    <a target="_blank" href="#" id="putProjectLink1"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="project_block_row_3">
+                                                <div class="project_description" id="putProjectDescription1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="project_block" data-reference="252">
+                                            <div class="project_block_row_1">
+                                                <div class="project_block_col_1_1">
+                                                    <div class="project_name" id="putProjectTitle2"></div>
+                                                </div>
+                                                <div class="project_block_col_1_2">
+                                                    <div class="project_time" id="putProjectDate2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="project_block_row_2">
+                                                <div class="project_technology" id="putProjectTechnology2"></div>
+                                                <div class="project_link">
+                                                    <a target="_blank" href="#" id="putProjectLink2"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="project_block_row_3">
+                                                <div class="project_description" id="putProjectDescription2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="project_block" data-reference="253">
+                                            <div class="project_block_row_1">
+                                                <div class="project_block_col_1_1">
+                                                    <div class="project_name" id="putProjectTitle3"></div>
+                                                </div>
+                                                <div class="project_block_col_1_2">
+                                                    <div class="project_time" id="putProjectDate3"></div>
+                                                </div>
+                                            </div>
+                                            <div class="project_block_row_2">
+                                                <div class="project_technology" id="putProjectTechnology3"></div>
+                                                <div class="project_link">
+                                                    <a target="_blank" href="#" id="putProjectLink3"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="project_block_row_3">
+                                                <div class="project_description" id="putProjectDescription3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="project_block" data-reference="254">
+                                            <div class="project_block_row_1">
+                                                <div class="project_block_col_1_1">
+                                                    <div class="project_name" id="putProjectTitle4"></div>
+                                                </div>
+                                                <div class="project_block_col_1_2">
+                                                    <div class="project_time" id="putProjectDate4"></div>
+                                                </div>
+                                            </div>
+                                            <div class="project_block_row_2">
+                                                <div class="project_technology" id="putProjectTechnology4"></div>
+                                                <div class="project_link">
+                                                    <a target="_blank" href="#" id="putProjectLink4"></a>
+                                                </div>    
+                                            </div>
+                                            <div class="project_block_row_3">
+                                                <div class="project_description" id="putProjectDescription4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="res_col_2 resume_certifications resume-certification" data-reference="26" id="resume-certification">
+                                    <div class="resume_title">Certifications</div>
+                                    <div class="certification_container">
+                                        <div class="certification_block" data-reference="260">
+                                            <div class="certification_block_col_1">
+                                                <div class="certification_name" id="putCertificateTitle0"></div>
+                                                <div class="certification_platform" id="putIssuer0"></div>
+                                            </div>
+                                            <div class="certification_block_col_2">
+                                                <div class="certification_time" id="putCertificateDate0"></div>
+                                            </div>
+                                        </div>
+                                        <div class="certification_block" data-reference="261">
+                                            <div class="certification_block_col_1">
+                                                <div class="certification_name" id="putCertificateTitle1"></div>
+                                                <div class="certification_platform" id="putIssuer1"></div>
+                                            </div>
+                                            <div class="certification_block_col_2">
+                                                <div class="certification_time" id="putCertificateDate1"></div>
+                                            </div>
+                                        </div>
+                                        <div class="certification_block" data-reference="262">
+                                            <div class="certification_block_col_1">
+                                                <div class="certification_name" id="putCertificateTitle2"></div>
+                                                <div class="certification_platform" id="putIssuer2"></div>
+                                            </div>
+                                            <div class="certification_block_col_2">
+                                                <div class="certification_time" id="putCertificateDate2"></div>
+                                            </div>
+                                        </div>
+                                        <div class="certification_block" data-reference="263">
+                                            <div class="certification_block_col_1">
+                                                <div class="certification_name" id="putCertificateTitle3"></div>
+                                                <div class="certification_platform" id="putIssuer3"></div>
+                                            </div>
+                                            <div class="certification_block_col_2">
+                                                <div class="certification_time" id="putCertificateDate3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="certification_block" data-reference="264">
+                                            <div class="certification_block_col_1">
+                                                <div class="certification_name" id="putCertificateTitle4"></div>
+                                                <div class="certification_platform" id="putIssuer4"></div>
+                                            </div>
+                                            <div class="certification_block_col_2">
+                                                <div class="certification_time" id="putCertificateDate4"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="welcome-screen">
+                    <div class="welcome_screen">
+                        Start Typing
+                        <span class="wait wait1">.</span>
+                        <span class="wait wait2">.</span>
+                        <span class="wait wait3">.</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-
-        <footer id="footer">
-            <div class="footer-copyright text-center mt-5 py-3">
-                &copy;&nbsp;Developed by <a href="bit.ly/csubhradipta" style="text-decoration: none; font-weight: 600; color: #3c1874;">Subhradipta Choudhury</a>
-              </div>
-        </footer>
-          
+        </div>   
     </body>
-
-
 </html>
