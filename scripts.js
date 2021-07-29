@@ -287,6 +287,16 @@ function hobbyNewField(){
 }
 
 $(document).ready( setInterval( function(){
+    
+    var leftNav = document.getElementById('left-navbar');
+    var leftComp = document.getElementById('left-component');
+    var rightComp = document.getElementById('myresume');
+    
+    if(window.innerWidth >= 768){
+        leftNav.style.display = "flex";
+        leftComp.style.display = "block";
+        rightComp.style.display = "block";
+    } 
 
     let name = document.getElementById("getName").value;
     document.getElementById("putName").innerText = name;
