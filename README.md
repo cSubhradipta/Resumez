@@ -10,7 +10,7 @@
 ![Vanilla JS](https://img.shields.io/badge/HTML-red?style=for-the-badge) ![Vanilla JS](https://img.shields.io/badge/CSS-blue?style=for-the-badge)   ![Vanilla JS](https://img.shields.io/badge/Javascript-yellow?style=for-the-badge) ![Vanilla JS](https://img.shields.io/badge/Bootstrap-purple?style=for-the-badge)
 
 ### <u>Website Demo</u>
-![Demo](assets/demo.mp4)
+https://user-images.githubusercontent.com/59282480/128536036-39a144a3-995a-4390-a96f-e98c7de32da9.mp4
   
 ### <u>Features</u>
  - Live preview of document.
