@@ -12,7 +12,7 @@
 ### <u>Website Demo</u>
 <figure class="video_container">
   <video controls="true" allowfullscreen="true" poster="assets/demo.mp4">
-    <source src="path/to/video.mp4" type="video/mp4">
+    <source src="assets/demo.mp4" type="video/mp4">
   </video>
 </figure>
   
