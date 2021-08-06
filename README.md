@@ -10,11 +10,7 @@
 ![Vanilla JS](https://img.shields.io/badge/HTML-red?style=for-the-badge) ![Vanilla JS](https://img.shields.io/badge/CSS-blue?style=for-the-badge)   ![Vanilla JS](https://img.shields.io/badge/Javascript-yellow?style=for-the-badge) ![Vanilla JS](https://img.shields.io/badge/Bootstrap-purple?style=for-the-badge)
 
 ### <u>Website Demo</u>
-<figure class="video_container">
-  <video controls="true" allowfullscreen="true" poster="assets/demo.mp4">
-    <source src="assets/demo.mp4" type="video/mp4">
-  </video>
-</figure>
+![Demo](assets/demo.mp4)
   
 ### <u>Features</u>
  - Live preview of document.
