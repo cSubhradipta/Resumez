@@ -1,4 +1,4 @@
-[![Project Logo](assets/resumez.png)](https://csubhradipta.github.io/Resumez) 
+<div style="text-align:center"><img src="assets/resumez.png" /></div>
 
 [![](https://img.shields.io/badge/Author-SUBHRADIPTA%20CHOUDHURY-blue?style=flat-square&logo=appveyor)](https://bit.ly/csubhradipta) [![MIT License](https://img.shields.io/badge/License-MIT-brightgreen?style=flat-square)](https://choosealicense.com/licenses/mit/)  [![URL: csubhradipta.github.io/Resumez](https://img.shields.io/badge/URL-csubhradipta.github.io/Resumez-red?style=flat-square)](https://csubhradipta.github.io/Resumez)
 
