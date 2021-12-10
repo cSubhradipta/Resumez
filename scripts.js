@@ -294,28 +294,9 @@ function hobbyNewField(){
         btn.setAttribute("disabled", true);  
     }
 }
-function exportjson(){
-//     const originalData = {
-//         members: [{
-//             name: "cliff",
-//             age: "34"
-//         },
-//         {
-//             name: "ted",
-//             age: "42"
-//         },
-//         {
-//             name: "bob",
-//             age: "12"
-//         }
-//         ]
-//     };
 
-//     const a = document.createElement("a");
-//     var blob = new Blob([JSON.stringify(originalData)], {type: "application/json"});
-//     saveAs(blob, "hello world.json");
-// // var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
-// // saveAs(blob, "hello world.txt");
+//Import-Export feature added by Souhardhya Paul(@xevozen)
+function exportjson(){
     const idElementList = 
     [   "getName",
         "getRole", 
@@ -369,19 +350,10 @@ function exportjson(){
     ]
     var exportJsonObj = {};
     var exportJsonObj2 = {};
-    // const course = {
-    //   name: 'JavaScript'  
-    // };
-    // const grade = {
-    //   score: 92  
-    // };
-    // exportJsonObj = Object.assign(course, grade);
     exportJsonObj["source"] = "Resumez";
     exportJsonObj["source-url"] = "https://csubhradipta.github.io/Resumez/";
     for (let i of idElementList) {
         var element = document.getElementById(i);
-        // console.log(element.value);
-        // var obj = Object.assign({i:element.value});
         exportJsonObj2[i] = element.value;
     }
     exportJsonObj["id"] = exportJsonObj2;
@@ -400,7 +372,6 @@ function exportjson(){
     exportJsonObj2 = {};
     exportJsonObj["col-1"] = $("#col-1").sortable("toArray");
     exportJsonObj["col-2"] = $("#col-2").sortable("toArray");
-    //console.log(exportJsonObj);
     var blob = new Blob([JSON.stringify(exportJsonObj, null, 2)], {type: "application/json"});
     saveAs(blob, "Resumez.json");
 
@@ -425,17 +396,13 @@ function importjson(){
     let subblockElementList;
     var fr = new FileReader();
     fr.onload = function(e) { 
-        //console.log(e);
         var result = JSON.parse(e.target.result);
-        // var formatted = JSON.stringify(result, null, 2);
         for(let i in result["id"]){
             document.getElementById(i).value = result["id"][i];
         }
         for(let i of blockElementList){
             for(let j in result["blocks"][i]){
-                // var len = j.substring(j.length - 1);
-                var len = j.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
-                //console.log(len);
+                var len = j.replace( /^\D+/g, '');
                 switch(i){
                     case "getInstitute":
                         if(len+1>eduCount){
@@ -529,53 +496,26 @@ function importjson(){
             }
             for(let j of subblockElementList){
                 for(let k in result["blocks"][j]){
-                    //console.log(k);
-                    // var len = k.substring(k.length - 1);
-                    var len = k.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+                    var len = k.replace( /^\D+/g, '');
                     document.getElementsByClassName(j)[len].value = result["blocks"][j][k];
                 }
             }
         }
-        //var custumOrder = ['resume-education', 'resume-experience', 'resume-publication', 'resume-project', 'resume-certification', 'resume-objective'];
         var custumOrder = result["col-1"];
-        //console.log(custumOrder);
         var ul = $("#col-1");
-        //var items = $("#sortable li");
-
-        // Changing li according custumOrder
         for (var item of custumOrder) {
-            //console.log(item);
             ul.append($('#' + item + ''));
         }
 
         $("#col-1").sortable();
         custumOrder = result["col-2"];
-        //console.log(custumOrder);
         ul = $("#col-2");
-        //var items = $("#sortable li");
-
-        // Changing li according custumOrder
         for (var item of custumOrder) {
-            //console.log(item);
             ul.append($('#' + item + ''));
         }
 
         $("#col-2").sortable();
     }
-    //     // customOrder is your order that you saved in db 
-    // var custumOrder = ['resume-education', 'resume-experience', 'resume-publication', 'resume-project', 'resume-certification', 'resume-objective'];
-
-    // var ul = $("#col-2");
-    // //var items = $("#sortable li");
-
-    // // Changing li according custumOrder
-    // for (var item of custumOrder) {
-    //     console.log(item);
-    //     ul.append($('#' + item + ''));
-    // }
-
-    // $("#col-2").sortable();
-
     fr.readAsText(files.item(0));
     
 }
