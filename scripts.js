@@ -373,7 +373,7 @@ function exportjson(){
     exportJsonObj["col-1"] = $("#col-1").sortable("toArray");
     exportJsonObj["col-2"] = $("#col-2").sortable("toArray");
     var blob = new Blob([JSON.stringify(exportJsonObj, null, 2)], {type: "application/json"});
-    saveAs(blob, "Resumez.json");
+    saveAs(blob, document.getElementById("getName").value+"-Resumez.json");
 
 }
 
