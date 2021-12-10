@@ -6,6 +6,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <script src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
         <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
         <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -14,7 +16,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
         <script src = "scripts.js"></script>
+        <script src = "FileSaver.js"></script>
         <link rel="stylesheet" href="style.css">
 
     </head>
@@ -37,6 +41,10 @@
                         <label class="el btn btn-dark btn-sm" data-toggle="tooltip" title="Reset" onclick="activeLayout('reset-layout')">
                             <input type="radio" name="options" id="option3" autocomplete="off">
                             <i class="uil uil-redo tool_icon"></i>
+                        </label>
+                        <label class="el btn btn-dark btn-sm" data-toggle="tooltip" title="JSON" onclick="activeLayout('json-layout')">
+                            <input type="radio" name="options" id="option4" autocomplete="off">
+                            <i class="uil uil-import tool_icon"></i>
                         </label>
                     </div>
 
@@ -599,6 +607,25 @@
                                     <div class="el btn btn-danger font" onclick="externalReset()">Reset Blocks</div>
                                     <div class="el btn btn-danger font" onclick="masterReset()">Master Reset</div>
                                 </div> 
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div id="json-layout">
+                    <div class="json_layout">
+                        <div class="container">
+                            <div class="formBlock" style="min-height: 30vh;">
+                                <div class="heading">Import JSON</div>
+                                <input class="form-control form-control-sm" id="formFileLg" type="file">
+                                <div class="text-center" style="background-color: #000;">
+                                    <button type="button" class="el my-4 px-4 btn btn-secondary" onclick="importjson()">Import&ensp;<i class="uil uil-file-import"></i></button>
+                                </div>
+                            </div>    
+                            <div class="formBlock" style="min-height: 36vh;">
+                                <div class="heading">Export JSON</div>
+                                <div class="text-center" style="background-color: #000;">
+                                    <button type="button" class="el px-4 btn btn-success" onclick="exportjson()">Export&ensp;<i class="uil uil-file-export"></i></div>
+                                </div>        
                             </div>
                         </div>    
                     </div>

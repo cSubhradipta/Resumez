@@ -124,6 +124,9 @@ label{
 #reset-layout{
     display: none;
 }
+#json-layout{
+    display: none;
+}
 
 .style_layout,
 .reset_layout{
@@ -323,12 +326,12 @@ i{
 
 .resume_template{
     width: 800px;
-	min-height: 1122px;
-	display: flex;
+    min-height: 1122px;
+    display: flex;
     flex-direction: column;
-	margin:  auto;
+    margin:  auto;
     padding: 1rem;
-	font-family: var(--font-family);
+    font-family: var(--font-family);
 }
 
 .resume_head{

@@ -1,0 +1,165 @@
+{
+  "source": "Resumez",
+  "source-url": "https://csubhradipta.github.io/Resumez/",
+  "id": {
+    "getName": "name",
+    "getRole": "role",
+    "getCurrOrg": "organization",
+    "getContact": "contact",
+    "getEmailID": "email",
+    "getAddress": "address",
+    "getCity": "city",
+    "getPin": "700000",
+    "getState": "state",
+    "getCountry": "country",
+    "getWebsite": "website",
+    "getGithub": "github",
+    "getLinkedIn": "linkedin",
+    "getObjective": "some random objective",
+    "getColor": ""
+  },
+  "blocks": {
+    "getInstitute": {
+      "getInstitute0": "institute1",
+      "getInstitute1": "institute2"
+    },
+    "getCourse": {
+      "getCourse0": "course1",
+      "getCourse1": "course2"
+    },
+    "getStream": {
+      "getStream0": "stream1",
+      "getStream1": "stream2"
+    },
+    "getCourseStartDate": {
+      "getCourseStartDate0": "2021-01",
+      "getCourseStartDate1": "0002-04"
+    },
+    "getPercentage": {
+      "getPercentage0": "cgpa1",
+      "getPercentage1": "cgpa2"
+    },
+    "getCourseEndDate": {
+      "getCourseEndDate0": "2021-10",
+      "getCourseEndDate1": "0004-03"
+    },
+    "getExpOrganization": {
+      "getExpOrganization0": "organization1",
+      "getExpOrganization1": "organization2"
+    },
+    "getExpRole": {
+      "getExpRole0": "role1",
+      "getExpRole1": "role2"
+    },
+    "getExpStartDate": {
+      "getExpStartDate0": "0012-04",
+      "getExpStartDate1": "0019-04"
+    },
+    "getExpEndDate": {
+      "getExpEndDate0": "0014-03",
+      "getExpEndDate1": "0022-03"
+    },
+    "getExpDescription": {
+      "getExpDescription0": "description 1",
+      "getExpDescription1": "description2"
+    },
+    "getPubTitle": {
+      "getPubTitle0": "title1",
+      "getPubTitle1": "title2"
+    },
+    "getPubLink": {
+      "getPubLink0": "url1",
+      "getPubLink1": "url2"
+    },
+    "getPublisher": {
+      "getPublisher0": "publisher1",
+      "getPublisher1": "publisher2"
+    },
+    "getPubDate": {
+      "getPubDate0": "2021-01",
+      "getPubDate1": "2021-03"
+    },
+    "getPubDescription": {
+      "getPubDescription0": "description1",
+      "getPubDescription1": "description2"
+    },
+    "getProjectTitle": {
+      "getProjectTitle0": "project1",
+      "getProjectTitle1": "project2"
+    },
+    "getProjectLink": {
+      "getProjectLink0": "url1",
+      "getProjectLink1": "url2"
+    },
+    "getProjectTechnology": {
+      "getProjectTechnology0": "technology1",
+      "getProjectTechnology1": "technology2"
+    },
+    "getProjectDate": {
+      "getProjectDate0": "0022-06",
+      "getProjectDate1": "0022-03"
+    },
+    "getProjectDescription": {
+      "getProjectDescription0": "description1",
+      "getProjectDescription1": "description2"
+    },
+    "getAwardTitle": {
+      "getAwardTitle0": "title1",
+      "getAwardTitle1": "title2"
+    },
+    "getAwarder": {
+      "getAwarder0": "awarder1",
+      "getAwarder1": "awarder2"
+    },
+    "getAwardDate": {
+      "getAwardDate0": "0024-03",
+      "getAwardDate1": "0015-06"
+    },
+    "getCertificateTitle": {
+      "getCertificateTitle0": "certificate1",
+      "getCertificateTitle1": "certificate2"
+    },
+    "getIssuer": {
+      "getIssuer0": "issuer1",
+      "getIssuer1": "issuer2"
+    },
+    "getCertificateDate": {
+      "getCertificateDate0": "0022-06",
+      "getCertificateDate1": "0011-03"
+    },
+    "getSkill": {
+      "getSkill0": "skill1",
+      "getSkill1": "skill2"
+    },
+    "getLevel": {
+      "getLevel0": "Novice",
+      "getLevel1": "Intermediate"
+    },
+    "getLanguage": {
+      "getLanguage0": "language1",
+      "getLanguage1": "language2"
+    },
+    "getFluency": {
+      "getFluency0": "Elementary",
+      "getFluency1": "Limited Working"
+    },
+    "getHobby": {
+      "getHobby0": "interest1",
+      "getHobby1": "interest2"
+    }
+  },
+  "col-1": [
+    "resume-skill",
+    "resume-achievement",
+    "resume-language",
+    "resume-hobby"
+  ],
+  "col-2": [
+    "resume-education",
+    "resume-experience",
+    "resume-objective",
+    "resume-publication",
+    "resume-project",
+    "resume-certification"
+  ]
+}
