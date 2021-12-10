@@ -131,19 +131,28 @@ function activeLayout(x){
     let form_layout = document.getElementById("form-layout");
     let style_layout = document.getElementById("style-layout");
     let reset_layout = document.getElementById("reset-layout");
+    let json_layout = document.getElementById("json-layout");
 
     if(x == "form-layout"){
         form_layout.style.display = "block";
         style_layout.style.display = "none";
         reset_layout.style.display = "none";
+        json_layout.style.display = "none";
     }  else if (x == "style-layout") {
         form_layout.style.display = "none";
         style_layout.style.display = "block";
         reset_layout.style.display = "none";
-    }  else {
+        json_layout.style.display = "none";
+    }  else if (x == "reset-layout"){
         form_layout.style.display = "none";
         style_layout.style.display = "none";
         reset_layout.style.display = "block";
+        json_layout.style.display = "none";
+    }  else {
+        form_layout.style.display = "none";
+        style_layout.style.display = "none";
+        reset_layout.style.display = "none";
+        json_layout.style.display = "block";
     }
 }
 
@@ -285,7 +294,291 @@ function hobbyNewField(){
         btn.setAttribute("disabled", true);  
     }
 }
+function exportjson(){
+//     const originalData = {
+//         members: [{
+//             name: "cliff",
+//             age: "34"
+//         },
+//         {
+//             name: "ted",
+//             age: "42"
+//         },
+//         {
+//             name: "bob",
+//             age: "12"
+//         }
+//         ]
+//     };
 
+//     const a = document.createElement("a");
+//     var blob = new Blob([JSON.stringify(originalData)], {type: "application/json"});
+//     saveAs(blob, "hello world.json");
+// // var blob = new Blob(["Hello, world!"], {type: "text/plain;charset=utf-8"});
+// // saveAs(blob, "hello world.txt");
+    const idElementList = 
+    [   "getName",
+        "getRole", 
+        "getCurrOrg", 
+        "getContact", 
+        "getEmailID", 
+        "getAddress", 
+        "getCity", 
+        "getPin", 
+        "getState",
+        "getCountry",
+        "getWebsite", 
+        "getGithub", 
+        "getLinkedIn",
+        "getObjective",
+        "getColor"
+    ]
+    const blockElementList =
+    [   "getInstitute",
+        "getCourse",
+        "getStream",
+        "getCourseStartDate",
+        "getPercentage",
+        "getCourseEndDate",
+        "getExpOrganization",
+        "getExpRole",
+        "getExpStartDate",
+        "getExpEndDate",
+        "getExpDescription",
+        "getPubTitle",
+        "getPubLink",
+        "getPublisher",
+        "getPubDate",
+        "getPubDescription",
+        "getProjectTitle",
+        "getProjectLink",
+        "getProjectTechnology",
+        "getProjectDate",
+        "getProjectDescription",
+        "getAwardTitle",
+        "getAwarder",
+        "getAwardDate",
+        "getCertificateTitle",
+        "getIssuer",
+        "getCertificateDate",
+        "getSkill",
+        "getLevel",
+        "getLanguage",
+        "getFluency",
+        "getHobby"
+    ]
+    var exportJsonObj = {};
+    var exportJsonObj2 = {};
+    // const course = {
+    //   name: 'JavaScript'  
+    // };
+    // const grade = {
+    //   score: 92  
+    // };
+    // exportJsonObj = Object.assign(course, grade);
+    exportJsonObj["source"] = "Resumez";
+    exportJsonObj["source-url"] = "https://csubhradipta.github.io/Resumez/";
+    for (let i of idElementList) {
+        var element = document.getElementById(i);
+        // console.log(element.value);
+        // var obj = Object.assign({i:element.value});
+        exportJsonObj2[i] = element.value;
+    }
+    exportJsonObj["id"] = exportJsonObj2;
+    exportJsonObj2 = {};
+    for (let i of blockElementList) {
+        var element = document.getElementsByClassName(i);
+        var exportJsonObj3 = {};
+        var k = 0;
+        for(let j of element){
+            exportJsonObj3[i+k] = j.value;
+            k++;
+        }
+        exportJsonObj2[i] = exportJsonObj3;
+    }
+    exportJsonObj["blocks"] = exportJsonObj2;
+    exportJsonObj2 = {};
+    exportJsonObj["col-1"] = $("#col-1").sortable("toArray");
+    exportJsonObj["col-2"] = $("#col-2").sortable("toArray");
+    //console.log(exportJsonObj);
+    var blob = new Blob([JSON.stringify(exportJsonObj, null, 2)], {type: "application/json"});
+    saveAs(blob, "Resumez.json");
+
+}
+
+function importjson(){
+    var files = document.getElementById('formFileLg').files;
+    if (files.length <= 0) {
+    return false;
+    }
+    const blockElementList =
+    [   "getInstitute",
+        "getExpOrganization",
+        "getPubTitle",
+        "getProjectTitle",
+        "getAwardTitle",
+        "getCertificateTitle",
+        "getSkill",
+        "getLanguage",
+        "getHobby",
+    ]
+    let subblockElementList;
+    var fr = new FileReader();
+    fr.onload = function(e) { 
+        //console.log(e);
+        var result = JSON.parse(e.target.result);
+        // var formatted = JSON.stringify(result, null, 2);
+        for(let i in result["id"]){
+            document.getElementById(i).value = result["id"][i];
+        }
+        for(let i of blockElementList){
+            for(let j in result["blocks"][i]){
+                // var len = j.substring(j.length - 1);
+                var len = j.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+                //console.log(len);
+                switch(i){
+                    case "getInstitute":
+                        if(len+1>eduCount){
+                            eduNewField();
+                        }
+                        subblockElementList =
+                        [   "getCourse",
+                            "getStream",
+                            "getCourseStartDate",
+                            "getCourseEndDate",
+                            "getPercentage"
+                        ]
+                        break;
+                    case "getExpOrganization":
+                        if(len+1>expCount){
+                            expNewField();
+                        }
+                        subblockElementList =
+                        [   "getExpRole",
+                            "getExpStartDate",
+                            "getExpEndDate",
+                            "getExpDescription",
+                        ]
+                        break;
+                    case "getPubTitle":
+                        if(len+1>pubCount){
+                            publicationNewField();
+                        }
+                        subblockElementList =
+                        [   "getPubLink",
+                            "getPublisher",
+                            "getPubDate",
+                            "getPubDescription",
+                        ]
+                        break;
+                    case "getProjectTitle":
+                        if(len+1>projCount){
+                            projectNewField();
+                        }
+                        subblockElementList =
+                        [   "getProjectLink",
+                            "getProjectTechnology",
+                            "getProjectDate",
+                            "getProjectDescription",
+                        ]
+                        break;
+                    case "getAwardTitle":
+                        if(len+1>awardCount){
+                            awardNewField();
+                        }
+                        subblockElementList =
+                        [   "getAwarder",
+                            "getAwardDate",
+                        ]
+                        break;
+                    case "getCertificateTitle":
+                        if(len+1>certCount){
+                            certificationNewField();
+                        }
+                        subblockElementList =
+                        [   "getIssuer",
+                            "getCertificateDate",
+                        ]
+                        break;
+                    case "getSkill":
+                        if(len+1>skillCount){
+                            skillNewField();
+                        }
+                        subblockElementList =
+                        [   "getLevel",
+                        ]
+                        break;
+                    case "getLanguage":
+                        if(len+1>langCount){
+                            languageNewField();
+                        }
+                        subblockElementList =
+                        [   "getFluency",
+                        ]
+                        break;
+                    case "getHobby":
+                        if(len+1>hobbyCount){
+                            hobbyNewField();
+                        }
+                        subblockElementList =
+                        [  
+                        ]
+                        break;
+                }
+                document.getElementsByClassName(i)[len].value = result["blocks"][i][j];
+            }
+            for(let j of subblockElementList){
+                for(let k in result["blocks"][j]){
+                    //console.log(k);
+                    // var len = k.substring(k.length - 1);
+                    var len = k.replace( /^\D+/g, ''); // replace all leading non-digits with nothing
+                    document.getElementsByClassName(j)[len].value = result["blocks"][j][k];
+                }
+            }
+        }
+        //var custumOrder = ['resume-education', 'resume-experience', 'resume-publication', 'resume-project', 'resume-certification', 'resume-objective'];
+        var custumOrder = result["col-1"];
+        //console.log(custumOrder);
+        var ul = $("#col-1");
+        //var items = $("#sortable li");
+
+        // Changing li according custumOrder
+        for (var item of custumOrder) {
+            //console.log(item);
+            ul.append($('#' + item + ''));
+        }
+
+        $("#col-1").sortable();
+        custumOrder = result["col-2"];
+        //console.log(custumOrder);
+        ul = $("#col-2");
+        //var items = $("#sortable li");
+
+        // Changing li according custumOrder
+        for (var item of custumOrder) {
+            //console.log(item);
+            ul.append($('#' + item + ''));
+        }
+
+        $("#col-2").sortable();
+    }
+    //     // customOrder is your order that you saved in db 
+    // var custumOrder = ['resume-education', 'resume-experience', 'resume-publication', 'resume-project', 'resume-certification', 'resume-objective'];
+
+    // var ul = $("#col-2");
+    // //var items = $("#sortable li");
+
+    // // Changing li according custumOrder
+    // for (var item of custumOrder) {
+    //     console.log(item);
+    //     ul.append($('#' + item + ''));
+    // }
+
+    // $("#col-2").sortable();
+
+    fr.readAsText(files.item(0));
+    
+}
 $(document).ready( setInterval( function(){
     
     var leftNav = document.getElementById('left-navbar');
