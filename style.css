@@ -22,6 +22,10 @@
     box-sizing: border-box;
     background-color: #fff;
 }
+
+/* div a {
+    word-wrap: break-word;
+} */
   
 .logo{
     font-family: 'Montserrat', sans-serif;
@@ -101,6 +105,9 @@ label{
 }
 
 #resume-head,
+#res-contact-details,
+#profile_image_block,
+#addressWrapper,
 #resume-skill,
 #resume-language,
 #resume-hobby,
@@ -342,11 +349,26 @@ i{
 
 .resume_icon{
     color: var(--title-color);
-    margin-right: 0.5rem;
+    /* margin-right: 0.5rem; */
+}
+
+.resume_profile_image{
+    border: 0.5pt solid;
+    border-color: #ddd;
+    width: 125px;
+    height: 125px;
+    overflow: hidden;
+}
+
+
+.profile_image_frame img{
+    position: relative;
+    width: 100%;
+    object-fit: cover;
 }
 
 .contact_block{
-    display: flex;
+    display: none;
     justify-content: start;
     margin: 0.2rem 0;
 }
@@ -378,16 +400,25 @@ hr.rule{
     grid-template-columns: 1fr 2fr;
 }
 
+a{
+    word-wrap: break-word;
+}
+
 .resume_col_1,
 .resume_col_2{
     display: flex;
     flex-direction: column;
-    margin: 0 0.5rem;
+    margin: 0 0.6rem;
     font-size: var(--normal-font);
 }
 
 .resume_col_1{
     margin-right: 0.5rem;
+    max-width: 260px;
+}
+
+.resume_col_2{
+    max-width: 465px;
 }
 
 .education_block,
