@@ -8,10 +8,6 @@
     "getContact": "contact",
     "getEmailID": "email",
     "getAddress": "address",
-    "getCity": "city",
-    "getPin": "700000",
-    "getState": "state",
-    "getCountry": "country",
     "getWebsite": "website",
     "getGithub": "github",
     "getLinkedIn": "linkedin",
@@ -148,6 +144,9 @@
       "getHobby1": "interest2"
     }
   },
+
+  "profileImage": "https://i.imgur.com/AZxvOSa.png",
+  
   "col-1": [
     "resume-skill",
     "resume-achievement",
