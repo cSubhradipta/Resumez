@@ -7,7 +7,7 @@ $(document).ready(function(){
         delay: 300
     });
 
-    $(".resume_contact_details, .skill_container, .achievement_container, .language_container, .hobby_container, .education_container, .experience_container, .publication_container, .project_container, .certification_container").sortable({
+    $(".skill_container, .achievement_container, .language_container, .hobby_container, .education_container, .experience_container, .publication_container, .project_container, .certification_container").sortable({
         delay: 300
     });
 });
@@ -15,16 +15,34 @@ $(document).ready(function(){
 var beginPart = `<div class="form-row mb-4">` 
 var endPart = `</div>`;
 
-function contactReset(){   
+// const file = document.getElementById("file")
+// const img = document.getElementById("img")
+// const url = document.getElementById("url")
+// file.addEventListener("change", ev => {
+//     const formdata = new FormData()
+//     formdata.append("image", ev.target.files[0])
+//     fetch("https://api.imgur.com/3/image/", {
+//         method: "post",
+//         headers: {
+//             Authorization: "Client-ID 248e02141ebdcca"
+//         },
+//         body: formdata
+//     }).then(data => data.json()).then(data => {
+//         img.src = data.data.link
+//         url.innerText = data.data.link
+//     })
+// })
+
+// function contactReset(){   
     
-    var $wrap = $(".resume_contact_details");
-    $wrap.find(".contact_block").sort(function(a, b) 
-    {
-        return + a.getAttribute('data-reference') - 
-        +b.getAttribute('data-reference');
-    })
-    .appendTo($wrap);
-}
+//     var $wrap = $(".resume_contact_details");
+//     $wrap.find(".contact_block").sort(function(a, b) 
+//     {
+//         return + a.getAttribute('data-reference') - 
+//         +b.getAttribute('data-reference');
+//     })
+//     .appendTo($wrap);
+// }
 
 function internalReset(n){   
     var x = "." + n + "_container";
@@ -72,7 +90,7 @@ function externalReset(){
 }
 
 function masterReset(){
-    contactReset();   
+    // contactReset();   
     externalReset();
     for (let index = 0; index < sections.length; index++) {
         internalReset(sections[index]);
@@ -295,6 +313,11 @@ function hobbyNewField(){
     }
 }
 
+function deletePic(){
+    var img = document.getElementById('putImage');
+    img.src = "";
+}
+
 //Import-Export feature added by Souhardhya Paul(@xevozen)
 function exportjson(){
     const idElementList = 
@@ -303,11 +326,7 @@ function exportjson(){
         "getCurrOrg", 
         "getContact", 
         "getEmailID", 
-        "getAddress", 
-        "getCity", 
-        "getPin", 
-        "getState",
-        "getCountry",
+        "getAddress",
         "getWebsite", 
         "getGithub", 
         "getLinkedIn",
@@ -370,6 +389,7 @@ function exportjson(){
     }
     exportJsonObj["blocks"] = exportJsonObj2;
     exportJsonObj2 = {};
+    exportJsonObj["profileImage"] = img.getAttribute("src");
     exportJsonObj["col-1"] = $("#col-1").sortable("toArray");
     exportJsonObj["col-2"] = $("#col-2").sortable("toArray");
     var blob = new Blob([JSON.stringify(exportJsonObj, null, 2)], {type: "application/json"});
@@ -397,6 +417,8 @@ function importjson(){
     var fr = new FileReader();
     fr.onload = function(e) { 
         var result = JSON.parse(e.target.result);
+        var imgImport = document.getElementById('putImage');
+        imgImport.src = result["profileImage"];
         for(let i in result["id"]){
             document.getElementById(i).value = result["id"][i];
         }
@@ -519,6 +541,7 @@ function importjson(){
     fr.readAsText(files.item(0));
     
 }
+
 $(document).ready( setInterval( function(){
     
     var leftNav = document.getElementById('left-navbar');
@@ -546,25 +569,24 @@ $(document).ready( setInterval( function(){
     document.getElementById("putCurrOrg").innerText = currOrg;
 
     let address = document.getElementById("getAddress").value;
-    let city = document.getElementById("getCity").value;
-    let pin = document.getElementById("getPin").value;
-    let state = document.getElementById("getState").value;
-    let country = document.getElementById("getCountry").value;
+    // let city = document.getElementById("getCity").value;
+    // let pin = document.getElementById("getPin").value;
+    // let state = document.getElementById("getState").value;
+    // let country = document.getElementById("getCountry").value;
 
-    if (city != ""){
-        city = ", " + city;
-    }
-    if (pin != ""){
-        pin = " - " + pin;
-    }
-    if (country != ""){
-        if(state != ""){
-            country = " - " + country;
-        }
-    }
+    // if (city != ""){
+    //     city = ", " + city;
+    // }
+    // if (pin != ""){
+    //     pin = " - " + pin;
+    // }
+    // if (country != ""){
+    //     if(state != ""){
+    //         country = " - " + country;
+    //     }
+    // }
 
-    var fullAddress = address + city + pin + "\n" + state + country;
-    document.getElementById("putAddress").innerText = fullAddress;
+    document.getElementById("putAddress").innerText = address;
 
     let contact = document.getElementById("getContact").value;
     var contact_link = document.getElementById("putContact");
@@ -593,6 +615,14 @@ $(document).ready( setInterval( function(){
     var linkedIn_link = document.getElementById("putLinkedIn");
     linkedIn_link.innerHTML = linkedIn_view;
     linkedIn_link.setAttribute("href", linkedIn);
+
+    let contBlock = document.getElementById("res-contact-details");
+
+    if(contact_link != "" || email_link != "" || website_link != "" || github_link != "" || linkedin_link != "" || address != ""){
+        contBlock.style.display = "block";
+    } else {
+        contBlock.style.display = "none";
+    }
 
     let objective = document.getElementById("getObjective").value;
     document.getElementById("putObjective").innerHTML = objective;
@@ -944,19 +974,36 @@ $(document).ready( setInterval( function(){
         document.getElementById(ID).innerHTML = e.value;
         i++;
     }
-
     var flagHeader = 0;
+    let img = document.getElementById("putImage");
+    var imgURL = img.getAttribute("src");
+    // console.log(imgURL);
+
+    var imgBlock = document.getElementById("profile_image_block");
+    var delBtn = document.getElementById("delPic");
+
+    if(imgURL == "" || imgURL == "undefined"){
+        imgBlock.style.display = "none";
+        delBtn.setAttribute("disabled", true);
+    } else {
+        imgBlock.style.display = "block";
+        delBtn.removeAttribute("disabled", true);
+        flagHeader = 1;
+    }
+
+    
     if(name != "" || role != "" || currOrg != ""){
         flagHeader = 1;
     }
 
-    var addressWrapper = document.getElementById("addressWrapper");
-    if ( address == "" &&  city == "" &&  pin == "" &&  state == "" &&  country == "" ) {
-        addressWrapper.style.display = "none";
-    } else {
-        addressWrapper.style.display = "block";
-        flagHeader = 1;
-    }
+    // var addressWrapper = document.getElementById("addressWrapper");
+    // console.log(address);
+    // if (address == "") {
+    //     addressWrapper.style.display = "none";
+    // } else if (address != ""){
+    //     addressWrapper.style.display = "block";
+    //     flagHeader = 1;
+    // }
 
     let contacts = document.getElementsByClassName("contact_links");
     var contactBlock = document.getElementsByClassName("contact_block");
@@ -965,7 +1012,7 @@ $(document).ready( setInterval( function(){
         if( e.innerHTML == ""){
             contactBlock[i].style.display = "none";
         } else {
-            contactBlock[i].style.display = "block";
+            contactBlock[i].style.display = "flex";
             flagHeader = 1;
         }
         i++;
