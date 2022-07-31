@@ -5,6 +5,7 @@
         <title id="myTitle">Resumez</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
         <script src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -76,6 +77,16 @@
             
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
+                                            <label for="getPic" class="mylabel col-form-label">Profile Photo</label>
+                                            <div class="input-group">
+                                                <input type="file" accept="image/png, image/jpg, image/jpeg, image/svg" name="pic" id="getPic" class="form-control form-control-sm" placeholder="Upload Profile Photo">
+                                                <div class="input-group-append">
+                                                    <button class="btn btn-danger btn-sm" type="button" id="delPic" disabled onclick='deletePic()'><i class="uil uil-trash-alt"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group col-md-12">
                                             <label for="getName" class="mylabel col-form-label">Name</label>
                                             <input type="text" name="name" id="getName" class="form-control form-control-sm" placeholder="Name">
                                         </div>
@@ -105,7 +116,7 @@
                                             <input type="text" name="address" id="getAddress" class="form-control form-control-sm" placeholder="Address">
                                         </div>
                 
-                                        <div class="form-group col-md-6">
+                                        <!-- <div class="form-group col-md-6">
                                             <label for="colFormLabel" class="mylabel col-form-label">City</label>
                                             <input type="text" name="address" id="getCity" class="form-control form-control-sm" placeholder="City">
                                         </div>
@@ -123,7 +134,7 @@
                                         <div class="form-group col-md-6">
                                             <label for="colFormLabel" class="mylabel col-form-label">Country</label>
                                             <input type="text" name="country" id="getCountry" class="form-control form-control-sm" placeholder="Country">
-                                        </div>
+                                        </div> -->
                 
                                         <div class="form-group col-md-12">
                                             <label for="colFormLabel" class="mylabel col-form-label">Website</label>
@@ -644,41 +655,75 @@
                 </div>
                 <div id="resume-layout">
                     <div class="resume_template">
-                        <div class="resume_head" id="resume-head">
+                        <div class="resume_head d-flex justify-content-between" id="resume-head">
                             <div class="resume_name_address">
                                 <div class="resume_name_wrapper" id="name-wrapper">
                                     <div class="resume_name" id="putName"></div>
                                     <div class="resume_my_role" id="putRole"></div>
                                     <div class="resume_my_role" id="putCurrOrg"></div>
                                 </div>
+                                <div class="resume_contact_details d-flex align-items-start" id="res-contact-details">
+                                    <div class="d-flex flex-row">
+                                        <div class="resume_phn contact_block align-items-center mr-3" data-reference="161">
+                                            <i class="fa fa-phone resume_icon" aria-hidden="true"></i>
+                                            <a target="_blank" href="#" class="contact_links ml-1" id="putContact"></a> 
+                                        </div>
+                                        <div class="resume_email contact_block align-items-center mr-3" data-reference="162">
+                                            <i class="fa fa-envelope resume_icon" aria-hidden="true"></i>
+                                            <a target="_blank" href="#" class="contact_links ml-1" id="putEmailID"></a>
+                                        </div>
+                                        <div class="resume_website contact_block align-items-center mr-3" data-reference="163">
+                                            <i class="fa fa-globe resume_icon" aria-hidden="true"></i>
+                                            <a target="_blank" href="#" class="contact_links ml-1" id="putWebsite"></a>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <div class="resume_github contact_block align-items-center mr-3" data-reference="164">
+                                            <i class="fa fa-github resume_icon" aria-hidden="true"></i>
+                                            <a target="_blank" href="#" class="contact_links ml-1" id="putGithub"></a>
+                                        </div>
+                                        <div class="resume_linkedin contact_block align-items-center mr-3" data-reference="165">
+                                            <i class="fa fa-linkedin resume_icon"  aria-hidden="true"></i>
+                                            <a target="_blank" href="#" class="contact_links ml-1" id="putLinkedIn"></a>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row">
+                                        <!-- <div class="resume_address_wrapper contact_block" id="addressWrapper">
+                                            <i class="fa fa-linkedin resume_icon"  aria-hidden="true"></i>
+                                            <div class="contact_links resume_address" id="putAddress"></div>    
+                                        </div> -->
+                                        <div class="contact_block align-items-center" id="addressWrapper" data-reference="166">
+                                            <i class="fa fa-map-marker resume_icon"  aria-hidden="true"></i>
+                                            <div class="contact_links ml-1" id="putAddress"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="resume_profile_image" id="profile_image_block">
+                                <div class="profile_image_frame">
+                                    <img src="" alt="" id="putImage">
+                                </div>
+                            </div>
+
+                            <script>
+                                const file = document.getElementById("getPic")
+                                const img = document.getElementById("putImage")
+                                file.addEventListener("change", ev => {
+                                    const formdata = new FormData()
+                                    formdata.append("image", ev.target.files[0])
+                                    fetch("https://api.imgur.com/3/image/", {
+                                        method: "post",
+                                        headers: {
+                                            Authorization: "Client-ID 248e02141ebdcca"
+                                        },
+                                        body: formdata
+                                    }).then(data => data.json()).then(data => {
+                                        img.src = data.data.link
+                                    })
+                                })
+                            </script>
                             
-                                <div class="resume_address_wrapper" id="addressWrapper">
-                                    <div class="resume_title" id="address-title">Address</div>
-                                    <div class="resume_address" id="putAddress"></div>    
-                                </div>
-                            </div>
-                            <div class="resume_contact_details" id="res-contact-details">
-                                <div class="resume_phn contact_block" data-reference="161">
-                                    <i class="fa fa-phone resume_icon" aria-hidden="true"></i>
-                                    <a target="_blank" href="#" class="contact_links" id="putContact"></a> 
-                                </div>
-                                <div class="resume_email contact_block" data-reference="162">
-                                    <i class="fa fa-envelope resume_icon" aria-hidden="true"></i>
-                                    <a target="_blank" href="#" class="contact_links" id="putEmailID"></a>
-                                </div>
-                                <div class="resume_website contact_block" data-reference="163">
-                                    <i class="fa fa-globe resume_icon" aria-hidden="true"></i>
-                                    <a target="_blank" href="#" class="contact_links" id="putWebsite"></a>
-                                </div>
-                                <div class="resume_github contact_block" data-reference="164">
-                                    <i class="fa fa-github resume_icon" aria-hidden="true"></i>
-                                    <a target="_blank" href="#" class="contact_links" id="putGithub"></a>
-                                </div>
-                                <div class="resume_linkedin contact_block" data-reference="165">
-                                    <i class="fa fa-linkedin resume_icon"  aria-hidden="true"></i>
-                                    <a target="_blank" href="#" class="contact_links" id="putLinkedIn"></a>
-                                </div>
-                            </div>
                         </div>
                         <hr class="rule" id="rule">
                         <div class="resume_content" id="resume_content">
