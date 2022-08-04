@@ -412,8 +412,8 @@ function exportjson(){
 
 }
 // var files = document.getElementById('formFileLg').files;
-function importjson(x){
-    var files = document.getElementById(x).files;
+function importjson(){
+    var files = document.getElementById('formFileLg').files;
     if (files.length <= 0) {
     return false;
     }
