@@ -15,6 +15,20 @@ $(document).ready(function(){
 var beginPart = `<div class="form-row mb-4">` 
 var endPart = `</div>`;
 
+function nameSplit(name){
+    var text = name.replace(" ", "");
+    return text;
+}
+
+function downloadPDF(){
+    const element = document.getElementById("resume-layout");
+    const name = document.getElementById("getName").value;
+    html2pdf()
+		.set({ html2canvas: { scale: 4 } })
+		.from(element)
+		.save(nameSplit(name)+"-Resumez.pdf");
+}
+
 // const file = document.getElementById("file")
 // const img = document.getElementById("img")
 // const url = document.getElementById("url")
@@ -392,13 +406,14 @@ function exportjson(){
     exportJsonObj["profileImage"] = img.getAttribute("src");
     exportJsonObj["col-1"] = $("#col-1").sortable("toArray");
     exportJsonObj["col-2"] = $("#col-2").sortable("toArray");
+    var name = document.getElementById("getName").value;
     var blob = new Blob([JSON.stringify(exportJsonObj, null, 2)], {type: "application/json"});
-    saveAs(blob, document.getElementById("getName").value+"-Resumez.json");
+    saveAs(blob, nameSplit(name)+"-Resumez.json");
 
 }
-
-function importjson(){
-    var files = document.getElementById('formFileLg').files;
+// var files = document.getElementById('formFileLg').files;
+function importjson(x){
+    var files = document.getElementById(x).files;
     if (files.length <= 0) {
     return false;
     }
