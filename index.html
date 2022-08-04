@@ -5,7 +5,9 @@
         <title id="myTitle">Resumez</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+        <script src="http://www.openjs.com/scripts/events/keyboard_shortcuts/shortcut.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
@@ -17,12 +19,16 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
+
         <script src = "scripts.js"></script>
         <script src = "FileSaver.js"></script>
         <link rel="stylesheet" href="style.css">
 
+
     </head>
     <body>
+        
+
         <div class="full_container">
 
             <div class="left_navbar" id="left-navbar">
@@ -52,9 +58,10 @@
                         <button type="button" name="" id="viewBtn" class="el btn btn-dark btn-sm"  data-toggle="tooltip" title="Preview" onclick="view('preview')"><i class="uil uil-eye tool_icon"></i></button>
                     </div>
 
-                    <div>
-                        <button type="button" name="" id="printBtn1" class="el btn btn-info btn-sm"  data-toggle="tooltip" title="Print" onclick="window.print()"><i class="uil uil-print tool_icon"></i></button>
+                    <div> <!--"-->
+                        <button type="button" name="" id="printBtn1" onclick="downloadPDF()" class="el btn btn-info btn-sm"  data-toggle="tooltip" title="Download"><i class="uil uil-file-download-alt tool_icon"></i></button>
                     </div>
+                    
                 </div>
             </div>
                 
@@ -84,7 +91,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
                                         <div class="form-group col-md-12">
                                             <label for="getName" class="mylabel col-form-label">Name</label>
                                             <input type="text" name="name" id="getName" class="form-control form-control-sm" placeholder="Name">
@@ -628,7 +634,7 @@
                                 <div class="heading">Import JSON</div>
                                 <input class="form-control form-control-sm" id="formFileLg" type="file">
                                 <div class="text-center" style="background-color: #000;">
-                                    <button type="button" class="el my-4 px-4 btn btn-secondary" onclick="importjson()">Import&ensp;<i class="uil uil-file-import"></i></button>
+                                    <button type="button" class="el my-4 px-4 btn btn-secondary" onclick="importjson('formFileLg')">Import&ensp;<i class="uil uil-file-import"></i></button>
                                 </div>
                             </div>    
                             <div class="formBlock" style="min-height: 36vh;">
@@ -649,8 +655,8 @@
 
             <div class="right_component" id="myresume">
                 <div class="close_button">
-                    <button type="button" name="" id="printBtn2" class="el btn btn-dark btn-sm"  data-toggle="tooltip" title="Print" onclick="window.print()"><i class="uil uil-print tool_icon"></i></button>
-                    <button type="button" name="" id="closeBtn" class="el btn btn-danger btn-sm"  data-toggle="tooltip" title="Close" onclick="view('close')"><i class="uil uil-times tool_icon"></i></button>
+                    <button type="button" name="" id="printBtn2" class="el btn btn-dark btn-sm"  data-toggle="tooltip" title="Download" onclick="downloadPDF()"><i class="uil uil-file-download-alt tool_icon"></i></button>
+                    <button type="button" name="" id="closeBtn" class="el btn btn-danger btn-sm"  data-toggle="tooltip" title="Close view" onclick="view('close')"><i class="uil uil-eye-slash tool_icon"></i></button>
                 </div>
                 <div id="resume-layout">
                     <div class="resume_template">
