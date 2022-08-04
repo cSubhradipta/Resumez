@@ -136,7 +136,8 @@ label{
 }
 
 .style_layout,
-.reset_layout{
+.reset_layout,
+.json_layout{
     background: #000;
 }
 
@@ -392,7 +393,7 @@ i{
 hr.rule{
     border-top: 0;
     border-bottom: 0.1pt solid #ccc;
-    margin: 0.4rem;
+    margin: 0.4rem 0.65rem 0.4rem 0.4rem;
 }
 
 .resume_content{
@@ -418,7 +419,7 @@ a{
 }
 
 .resume_col_2{
-    max-width: 465px;
+    max-width: 500px;
 }
 
 .education_block,
