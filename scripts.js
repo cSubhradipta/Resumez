@@ -23,10 +23,12 @@ function nameSplit(name){
 function downloadPDF(){
     const element = document.getElementById("resume-layout");
     const name = document.getElementById("getName").value;
-    html2pdf()
-		.set({ html2canvas: { scale: 4, useCORS: true } })
-		.from(element)
-		.save(nameSplit(name)+"-Resumez.pdf");
+    var opt = {
+      filename: nameSplit(name)+"-Resumez.pdf",
+      image: { type: 'jpg', quality: 0.98 },
+      html2canvas: { scale: 4, useCORS: true},    
+    };
+    html2pdf().set(opt).from(element).save();
 }
 
 // const file = document.getElementById("file")
