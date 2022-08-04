@@ -24,7 +24,7 @@ function downloadPDF(){
     const element = document.getElementById("resume-layout");
     const name = document.getElementById("getName").value;
     html2pdf()
-		.set({ html2canvas: { scale: 4 } })
+		.set({ html2canvas: { scale: 4, useCORS: true } })
 		.from(element)
 		.save(nameSplit(name)+"-Resumez.pdf");
 }
